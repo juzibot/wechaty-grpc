@@ -43,6 +43,13 @@ enum MessageType { // 消息类型
   MESSAGE_TYPE_SYSTEM       = 18;// 系统消息
 }
 
+enum MessageStatus {
+  MESSAGE_STATUS_UNSPECIFIED  = 0;
+
+  MESSAGE_STATUS_SEND_FAIL  = 1;
+  MESSAGE_STATUS_REVOKE  = 2;
+}
+
 message MessagePayloadRequest {
   string id = 1;
 }
@@ -62,6 +69,7 @@ message MessagePayloadResponse {
   repeated    string mention_ids = 9; // 群消息@人的id列表
   google.protobuf.Timestamp receive_time = 10; // 收到消息时间
   optional string quote_id       = 11; // 被引用的消息id
+  MessageStatus status           = 12; // 状态
 }
 
 message MessageImageRequest {
