@@ -494,7 +494,7 @@ service Puppet {
 
   rpc RoomOwnerTransfer (puppet.RoomOwnerTransferRequest) returns (puppet.RoomOwnerTransferResponse) {
     option (google.api.http) = {
-      post: "/rooms/{id}/transfer/${contact_id}"
+      post: "/rooms/{id}/transfer/{contact_id}"
     };
   }
 
