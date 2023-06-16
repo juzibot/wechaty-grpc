@@ -7,6 +7,8 @@ option csharp_namespace = "github.wechaty.grpc.puppet";
 
 import "google/protobuf/wrappers.proto";
 
+import "wechaty/puppet/util.proto";
+
 message RoomListRequest {}
 message RoomListResponse {
   repeated string ids = 1;
@@ -104,9 +106,9 @@ message RoomOwnerTransferResponse {}
 
 message RoomPermissionRequest {
   string id = 1;
-  bool send_message = 2;
-  bool invitation_check = 3;
-  bool room_topic_edit = 4;
+  Bool_Optional send_message = 2;
+  Bool_Optional invitation_check = 3;
+  Bool_Optional room_topic_edit = 4;
 }
 
 message RoomPermissionResponse {
