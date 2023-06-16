@@ -5,7 +5,7 @@ option go_package       = "github.com/wechaty/go-grpc/wechaty/puppet";
 option java_package     = "io.github.wechaty.grpc.puppet";
 option csharp_namespace = "github.wechaty.grpc.puppet";
 
-enum Bool_Optional {
+enum OptionalBoolean {
   BOOL_UNSET = 0;
   BOOL_FALSE = 1;
   BOOL_TRUE = 2;

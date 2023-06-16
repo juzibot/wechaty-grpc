@@ -106,9 +106,9 @@ message RoomOwnerTransferResponse {}
 
 message RoomPermissionRequest {
   string id = 1;
-  Bool_Optional send_message = 2;
-  Bool_Optional invitation_check = 3;
-  Bool_Optional room_topic_edit = 4;
+  OptionalBoolean send_message = 2;
+  OptionalBoolean invitation_check = 3;
+  OptionalBoolean room_topic_edit = 4;
 }
 
 message RoomPermissionResponse {
