@@ -106,13 +106,17 @@ message RoomOwnerTransferResponse {}
 
 message RoomPermissionRequest {
   string id = 1;
-  OptionalBoolean send_message = 2;
-  OptionalBoolean invitation_check = 3;
-  OptionalBoolean room_topic_edit = 4;
+  OptionalBoolean invite_confirm = 2;
+  OptionalBoolean admin_only_manage = 3;
+  OptionalBoolean admin_only_at_all = 4;
+  OptionalBoolean mute_all = 4;
+  OptionalBoolean forbid_room_topic_edit = 4;
 }
 
 message RoomPermissionResponse {
-  bool send_message = 1;
-  bool invitation_check = 2;
-  bool room_topic_edit = 3;
+  OptionalBoolean invite_confirm = 2;
+  OptionalBoolean admin_only_manage = 3;
+  OptionalBoolean admin_only_at_all = 4;
+  OptionalBoolean mute_all = 4;
+  OptionalBoolean forbid_room_topic_edit = 4;
 }
