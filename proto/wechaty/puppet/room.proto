@@ -109,14 +109,14 @@ message RoomPermissionRequest {
   OptionalBoolean invite_confirm = 2;
   OptionalBoolean admin_only_manage = 3;
   OptionalBoolean admin_only_at_all = 4;
-  OptionalBoolean mute_all = 4;
-  OptionalBoolean forbid_room_topic_edit = 4;
+  OptionalBoolean mute_all = 5;
+  OptionalBoolean forbid_room_topic_edit = 6;
 }
 
 message RoomPermissionResponse {
-  OptionalBoolean invite_confirm = 2;
-  OptionalBoolean admin_only_manage = 3;
-  OptionalBoolean admin_only_at_all = 4;
+  OptionalBoolean invite_confirm = 1;
+  OptionalBoolean admin_only_manage = 2;
+  OptionalBoolean admin_only_at_all = 3;
   OptionalBoolean mute_all = 4;
-  OptionalBoolean forbid_room_topic_edit = 4;
+  OptionalBoolean forbid_room_topic_edit = 5;
 }
