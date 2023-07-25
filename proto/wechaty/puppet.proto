@@ -158,6 +158,11 @@ service Puppet {
       body: "*"
     };
   }
+  rpc ContactSelfRoomAlias (puppet.ContactSelfRoomAliasRequest) returns (puppet.ContactSelfRoomAliasResponse) {
+    option (google.api.http) = {
+      put: "/contact/room/{room_id}/alias/{alias}"
+    };
+  }
 
   /**
    *
