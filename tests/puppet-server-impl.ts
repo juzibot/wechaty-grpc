@@ -82,6 +82,12 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  contactSelfRoomAlias: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   conversationRead: (call, callback) => {
     void call
     void callback
