@@ -79,6 +79,13 @@ message ContactSelfSignatureRequest {
 }
 message ContactSelfSignatureResponse {}
 
+message ContactSelfRoomAliasRequest {
+  string room_id = 1;
+  string alias = 2;
+}
+
+message ContactSelfRoomAliasResponse {}
+
 message ContactAliasRequest {
   string id = 1;
   // nullable
