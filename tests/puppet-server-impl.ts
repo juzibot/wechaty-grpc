@@ -532,6 +532,12 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  enterVerifyCode: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   download: (call) => {
     void call
     throw new Error('not implemented.')
