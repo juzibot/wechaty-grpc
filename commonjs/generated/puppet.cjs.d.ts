@@ -40,6 +40,7 @@ export * from '../../out/wechaty/puppet/moment_pb.js'
 export * from '../../out/wechaty/puppet/post_pb.js'
 export * from '../../out/wechaty/puppet/conversation_pb.js'
 export * from '../../out/wechaty/puppet/util_pb.js'
+export * from '../../out/wechaty/puppet/verify-code_pb.js'
 
 export * from '../../out/wechaty/puppet_grpc_pb.js'
 export * from '../../out/wechaty/puppet_pb.js'
