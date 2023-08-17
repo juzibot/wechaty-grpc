@@ -54,3 +54,9 @@ message CurrentUserRequest {
 message CurrentUserResponse {
   string user_id = 1;
 }
+
+message RefreshQRCodeRequest {
+}
+
+message RefreshQRCodeResponse {
+}

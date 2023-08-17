@@ -12,3 +12,10 @@ message EnterVerifyCodeRequest {
 
 message EnterVerifyCodeResponse {
 }
+
+message CancelVerifyCodeRequest {
+  string id = 1;
+}
+
+message CancelVerifyCodeResponse {
+}
