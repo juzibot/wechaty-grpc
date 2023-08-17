@@ -109,6 +109,16 @@ service Puppet {
       post: "/enter_verify_code"
     };
   }
+  rpc CancelVerifyCode (puppet.CancelVerifyCodeRequest)    returns (puppet.CancelVerifyCodeResponse) {
+    option (google.api.http) = {
+      post: "/cancel_verify_code"
+    };
+  }
+  rpc RefreshQRCode (puppet.RefreshQRCodeRequest)    returns (puppet.RefreshQRCodeRequest) {
+    option (google.api.http) = {
+      post: "/refresh_qr_code"
+    };
+  }
 
   /**
    *
