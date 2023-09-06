@@ -120,3 +120,10 @@ message RoomPermissionResponse {
   OptionalBoolean mute_all = 4;
   OptionalBoolean forbid_room_topic_edit = 5;
 }
+
+message RoomAdminsRequest {
+  string id = 1;
+  repeated string contact_ids = 2;
+}
+
+message RoomAdminsResponse {}

@@ -524,6 +524,18 @@ service Puppet {
     };
   }
 
+  rpc RoomAddAdmins (puppet.RoomAdminsRequest) returns (puppet.RoomAdminsResponse) {
+    option (google.api.http) = {
+      put: "/rooms/{id}/add/admins/{contact_ids}"
+    };
+  }
+
+  rpc RoomDelAdmins (puppet.RoomAdminsRequest) returns (puppet.RoomAdminsResponse) {
+    option (google.api.http) = {
+      delete: "/rooms/{id}/del/admins/{contact_ids}"
+    };
+  }
+
   /**
    *
    * Room Member
