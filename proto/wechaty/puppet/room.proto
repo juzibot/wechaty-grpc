@@ -123,7 +123,7 @@ message RoomPermissionResponse {
 
 message RoomAdminsRequest {
   string id = 1;
-  string contact_ids = 2;
+  repeated string contact_ids = 2;
 }
 
 message RoomAdminsResponse {}
