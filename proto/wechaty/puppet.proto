@@ -31,6 +31,7 @@ import "wechaty/puppet/channel.proto";
 import "wechaty/puppet/post.proto";
 import "wechaty/puppet/moment.proto";
 import "wechaty/puppet/verify-code.proto";
+import "wechaty/puppet/call.proto";
 
 option java_package="io.github.wechaty.grpc";
 option go_package="github.com/wechaty/go-grpc/wechaty";
@@ -357,6 +358,11 @@ service Puppet {
   rpc MessageChannel (puppet.MessageChannelRequest) returns (puppet.MessageChannelResponse) {
     option (google.api.http) = {
       get: "/message/{id}/channel"
+    };
+  }
+  rpc MessageCallRecord (puppet.MessageCallRecordRequest) returns (puppet.MessageCallRecordlResponse) {
+    option (google.api.http) = {
+      get: "/message/{id}/call-record"
     };
   }
   rpc MessageRecall (puppet.MessageRecallRequest) returns (puppet.MessageRecallResponse) {
