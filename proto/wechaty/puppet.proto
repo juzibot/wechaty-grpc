@@ -27,11 +27,9 @@ import "wechaty/puppet/room-member.proto";
 import "wechaty/puppet/room.proto";
 import "wechaty/puppet/tag.proto";
 import "wechaty/puppet/conversation.proto";
-import "wechaty/puppet/channel.proto";
 import "wechaty/puppet/post.proto";
 import "wechaty/puppet/moment.proto";
 import "wechaty/puppet/verify-code.proto";
-import "wechaty/puppet/call.proto";
 
 option java_package="io.github.wechaty.grpc";
 option go_package="github.com/wechaty/go-grpc/wechaty";

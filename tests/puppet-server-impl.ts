@@ -178,7 +178,6 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
-
   messageForward: (call, callback) => {
     void call
     void callback
