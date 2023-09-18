@@ -358,7 +358,7 @@ service Puppet {
       get: "/message/{id}/channel"
     };
   }
-  rpc MessageCallRecord (puppet.MessageCallRecordRequest) returns (puppet.MessageCallRecordlResponse) {
+  rpc MessageCallRecord (puppet.MessageCallRecordRequest) returns (puppet.MessageCallRecordResponse) {
     option (google.api.http) = {
       get: "/message/{id}/call-record"
     };
