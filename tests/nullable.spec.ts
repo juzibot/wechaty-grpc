@@ -82,7 +82,7 @@ test('use StringValue to support nullable values', async t => {
 
   const client = new puppet.PuppetClient(
     SERVER_ENDPOINT,
-    grpc.credentials.createInsecure()
+    grpc.credentials.createInsecure(),
   )
 
   const contactAliasPromise = util.promisify(client.contactAlias.bind(client))

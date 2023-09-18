@@ -86,7 +86,8 @@ async function main () {
   )
 
   testStream(client)
-  setInterval(() => testDing(client), 1000)
+  // eslint-disable-next-line no-void
+  setInterval(() => void testDing(client), 1000)
   // await testAlias(client)
 
   return 0
