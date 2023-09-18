@@ -128,7 +128,7 @@ message MessageCallRecordRequest {
   string id = 1;
 }
 message MessageCallRecordlResponse {
-  CallRecordPayload channel = 1;
+  CallRecordPayload call_record = 1;
 }
 
 
