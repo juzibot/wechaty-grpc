@@ -6,7 +6,7 @@ import { Status as GrpcServerStatus } from '@grpc/grpc-js/build/src/constants'
 import {
   grpc,
   puppet,
-}                       from '../../src/mod'
+}                       from '../../src/mod.js'
 
 import {
   puppetServerImpl,
@@ -29,7 +29,7 @@ function monkeyPatchMetadataFromHttp2Headers (
 ): void {
   const fromHttp2Headers = MetadataClass.fromHttp2Headers
   MetadataClass.fromHttp2Headers = function (
-    headers: http2.IncomingHttpHeaders
+    headers: http2.IncomingHttpHeaders,
   ): Metadata {
     const metadata = fromHttp2Headers.call(MetadataClass, headers)
 
@@ -124,7 +124,7 @@ function authHandler (
 const wechatyAuthToken = (validToken: string) => (
   puppetServer: puppet.IPuppetServer,
 ) => {
-  for (const [key, val] of Object.entries(puppetServer)) {
+  for (const [ key, val ] of Object.entries(puppetServer)) {
     puppetServer[key] = authHandler(validToken, val)
   }
   return puppetServer
@@ -153,23 +153,23 @@ async function main () {
   )
 
   const serverBindPromise = util.promisify(
-    server.bindAsync.bind(server)
+    server.bindAsync.bind(server),
   )
 
   void fs
 
   const rootCerts: null | Buffer = fs.readFileSync('root-ca.crt')
   void rootCerts
-  const keyCertPairs: grpc.KeyCertPair[] = [{
+  const keyCertPairs: grpc.KeyCertPair[] = [ {
     cert_chain  : fs.readFileSync('server.crt'),
     private_key : fs.readFileSync('server.key'),
-  }]
+  } ]
   // const checkClientCertificate = false
 
   const port = await serverBindPromise(
     '0.0.0.0:8788',
     // grpc.ServerCredentials.createInsecure(),
-    grpc.ServerCredentials.createSsl(null, keyCertPairs) //, checkClientCertificate),
+    grpc.ServerCredentials.createSsl(null, keyCertPairs), //, checkClientCertificate),
   )
   console.info('Listen on port:', port)
   server.start()

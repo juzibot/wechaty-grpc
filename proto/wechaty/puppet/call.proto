@@ -1,0 +1,28 @@
+syntax = "proto3";
+package wechaty.puppet;
+
+option go_package       = "github.com/wechaty/go-grpc/wechaty/puppet";
+option java_package     = "io.github.wechaty.grpc.puppet";
+option csharp_namespace = "github.wechaty.grpc.puppet";
+
+enum CallType {
+  CALL_TYPE_UNKNOWN = 0; // 不明确
+  CALL_TYPE_VOICE = 1; // 语音
+  CALL_TYPE_VIDEO = 2; // 视频
+}
+
+enum CallStatus { // 类型枚举
+  CALL_STATUS_UNKNOWN = 0; // 不明确
+  CALL_STATUS_CANCELED = 1; // 自己取消
+  CALL_STATUS_REJECTED = 2; // 对方拒接
+  CALL_STATUS_ONGOING = 3; // 正在通话
+  CALL_STATUS_ENDED = 4; // 已结束
+}
+
+message CallRecordPayload {
+  string starter_id = 1;
+  repeated string participant_ids = 2;
+  int32 length = 3;
+  CallType type = 4;
+  CallStatus status = 5;
+}

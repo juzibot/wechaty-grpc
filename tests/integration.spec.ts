@@ -16,7 +16,7 @@ import {
 test('integration testing', async t => {
   const ENDPOINT = 'localhost:18788'
 
-  const DING_DATA_LIST  = ['data1', 'data2']
+  const DING_DATA_LIST  = [ 'data1', 'data2' ]
   const EVENT_DATA_LIST = [] as string[]
 
   /**
@@ -40,7 +40,7 @@ test('integration testing', async t => {
    */
   const client = new puppet.PuppetClient(
     ENDPOINT,
-    grpc.credentials.createInsecure()
+    grpc.credentials.createInsecure(),
   )
 
   /**

@@ -10,10 +10,10 @@ import {
 }             from '../src/mod.js'
 
 test('HealthCheck protocol buffer', async t => {
-  const request   = new google.HealthCheckRequest()
+  // const request   = new google.HealthCheckRequest()
   const response  = new google.HealthCheckResponse()
   response.setStatus(google.HealthCheckResponse.ServingStatus.SERVING)
-  await t.ok(request && response, 'should export HealCheck protobuf')
+  await t.ok(response, 'should export HealCheck protobuf')
 })
 
 test('health check smoke testing', async t => {
@@ -31,7 +31,7 @@ test('health check smoke testing', async t => {
   )
   await promisify(
     server.bindAsync
-      .bind(server)
+      .bind(server),
   )(
     ENDPOINT,
     grpc.ServerCredentials.createInsecure(),
@@ -43,13 +43,13 @@ test('health check smoke testing', async t => {
    */
   const client = new google.HealthClient(
     ENDPOINT,
-    grpc.credentials.createInsecure()
+    grpc.credentials.createInsecure(),
   )
 
   const request = new google.HealthCheckRequest()
   const response = await promisify(
     client.check
-      .bind(client)
+      .bind(client),
   )(request) as any
 
   t.equal(response.getStatus(), google.HealthCheckResponse.ServingStatus.SERVING, 'should return SERVING_STATUS_SERVING for check method')

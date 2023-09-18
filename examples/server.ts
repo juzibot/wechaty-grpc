@@ -83,7 +83,7 @@ async function main () {
     puppetServerExample,
   )
   const serverBindPromise = util.promisify(
-    server.bindAsync.bind(server)
+    server.bindAsync.bind(server),
   )
 
   const port = await serverBindPromise(

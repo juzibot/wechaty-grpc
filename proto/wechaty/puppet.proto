@@ -27,7 +27,6 @@ import "wechaty/puppet/room-member.proto";
 import "wechaty/puppet/room.proto";
 import "wechaty/puppet/tag.proto";
 import "wechaty/puppet/conversation.proto";
-import "wechaty/puppet/channel.proto";
 import "wechaty/puppet/post.proto";
 import "wechaty/puppet/moment.proto";
 import "wechaty/puppet/verify-code.proto";
@@ -357,6 +356,11 @@ service Puppet {
   rpc MessageChannel (puppet.MessageChannelRequest) returns (puppet.MessageChannelResponse) {
     option (google.api.http) = {
       get: "/message/{id}/channel"
+    };
+  }
+  rpc MessageCallRecord (puppet.MessageCallRecordRequest) returns (puppet.MessageCallRecordlResponse) {
+    option (google.api.http) = {
+      get: "/message/{id}/call-record"
     };
   }
   rpc MessageRecall (puppet.MessageRecallRequest) returns (puppet.MessageRecallResponse) {

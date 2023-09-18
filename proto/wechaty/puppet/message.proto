@@ -20,6 +20,7 @@ import "wechaty/puppet/mini-program.proto";
 import "wechaty/puppet/url-link.proto";
 import "wechaty/puppet/channel.proto";
 import "wechaty/puppet/post.proto";
+import "wechaty/puppet/call.proto";
 
 
 enum MessageType { // 消息类型
@@ -43,6 +44,8 @@ enum MessageType { // 消息类型
   MESSAGE_TYPE_POST         = 16;// 特殊的复合类型，wxwork中没有
   MESSAGE_TYPE_CHANNEL      = 17;// 视频号
   MESSAGE_TYPE_SYSTEM       = 18;// 系统消息
+  MESSAGE_TYPE_MARKDOWN     = 19;// MarkDown
+  MESSAGE_TYPE_CALL_RECORD  = 20;// 通话记录
 }
 
 message MessagePayloadRequest {
@@ -120,6 +123,14 @@ message MessageChannelRequest {
 message MessageChannelResponse {
   ChannelPayload channel = 1;
 }
+
+message MessageCallRecordRequest {
+  string id = 1;
+}
+message MessageCallRecordlResponse {
+  CallRecordPayload channel = 1;
+}
+
 
 message MessageSendContactRequest {
   string conversation_id = 1;
