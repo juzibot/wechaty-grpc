@@ -15,8 +15,9 @@ enum CallStatus { // 类型枚举
   CALL_STATUS_UNKNOWN = 0; // 不明确
   CALL_STATUS_CANCELED = 1; // 自己取消
   CALL_STATUS_REJECTED = 2; // 对方拒接
-  CALL_STATUS_ONGOING = 3; // 正在通话
-  CALL_STATUS_ENDED = 4; // 已结束
+  CALL_STATUS_MISSED = 3; // 正在通话
+  CALL_STATUS_ONGOING = 4; // 正在通话
+  CALL_STATUS_ENDED = 5; // 已结束
 }
 
 message CallRecordPayload {
