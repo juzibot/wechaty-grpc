@@ -1,0 +1,43 @@
+syntax = "proto3";
+package wechaty.puppet;
+
+option go_package       = "github.com/wechaty/go-grpc/wechaty/puppet";
+option java_package     = "io.github.wechaty.grpc.puppet";
+option csharp_namespace = "github.wechaty.grpc.puppet";
+
+import "location.proto";
+import "mini-program.proto";
+import "url-link.proto";
+import "channel.proto";
+import "message.proto";
+
+enum ChatHistoryContentType {
+  TEXT = 0;
+  FILE = 1;
+  LOCATION = 2;
+  URL = 3;
+  MINI_PROGRAM = 4;
+  CHANNEL = 5;
+  CHAT_HISTORY = 6;
+}
+
+message ChatHistoryContent {
+  ChatHistoryContentType type = 1;
+  string text = 2;
+  string file_box = 3;
+  LocationPayload location = 4;
+  UrlLinkPayload url_link = 5;
+  MiniProgramPayload mini_program = 6;
+  ChannelPayload channel = 7;
+  repeated ChatHistoryPayload chat_history = 8;
+}
+
+
+message ChatHistoryPayload {
+  MessageType type = 1;
+  string avatar = 2;
+  string sender_name = 3;
+  string corp_name = 4;
+  string time = 5;
+  ChatHistoryContent message = 6;
+}

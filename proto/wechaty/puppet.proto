@@ -363,6 +363,11 @@ service Puppet {
       get: "/message/{id}/call-record"
     };
   }
+  rpc MessageChatHistory (puppet.MessageChatHistoryRequest) returns (puppet.MessageChatHistoryResponse) {
+    option (google.api.http) = {
+      get: "/message/{id}/chat-history"
+    };
+  }
   rpc MessageRecall (puppet.MessageRecallRequest) returns (puppet.MessageRecallResponse) {
     option (google.api.http) = {
       put: "/message/{id}/recall"
