@@ -42,6 +42,7 @@ export * from '../../out/wechaty/puppet/conversation_pb.js'
 export * from '../../out/wechaty/puppet/util_pb.js'
 export * from '../../out/wechaty/puppet/verify-code_pb.js'
 export * from '../../out/wechaty/puppet/call_pb.js'
+export * from '../../out/wechaty/puppet/chat-history_pb.js'
 
 export * from '../../out/wechaty/puppet_grpc_pb.js'
 export * from '../../out/wechaty/puppet_pb.js'

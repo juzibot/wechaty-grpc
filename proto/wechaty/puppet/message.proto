@@ -21,6 +21,7 @@ import "wechaty/puppet/url-link.proto";
 import "wechaty/puppet/channel.proto";
 import "wechaty/puppet/post.proto";
 import "wechaty/puppet/call.proto";
+import "wechaty/puppet/chat-history.proto";
 
 
 enum MessageType { // 消息类型
@@ -131,6 +132,13 @@ message MessageCallRecordResponse {
   CallRecordPayload call_record = 1;
 }
 
+message MessageChatHistoryRequest {
+  string id = 1;
+}
+message MessageChatHistoryResponse {
+  repeated ChatHistoryPayload chat_history_list = 1;
+}
+
 
 message MessageSendContactRequest {
   string conversation_id = 1;
@@ -221,8 +229,10 @@ message MessageRecallResponse {
   bool success = 1;
 }
 message MessageForwardRequest{
-  string message_id = 1; // 要转发的消息id
+  // @deprecated: use message_ids instead.
+  string message_id = 1 [deprecated = true]; // 要转发的消息id
   string conversation_id = 2; // 对话id
+  repeated string message_ids = 3; // 要合并转发的消息id列表
 }
 message MessageForwardResponse {
   /**
