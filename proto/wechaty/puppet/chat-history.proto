@@ -5,11 +5,10 @@ option go_package       = "github.com/wechaty/go-grpc/wechaty/puppet";
 option java_package     = "io.github.wechaty.grpc.puppet";
 option csharp_namespace = "github.wechaty.grpc.puppet";
 
-import "location.proto";
-import "mini-program.proto";
-import "url-link.proto";
-import "channel.proto";
-import "message.proto";
+import "wechaty/puppet/location.proto";
+import "wechaty/puppet/mini-program.proto";
+import "wechaty/puppet/url-link.proto";
+import "wechaty/puppet/channel.proto";
 
 enum ChatHistoryContentType {
   TEXT = 0;
@@ -34,7 +33,7 @@ message ChatHistoryContent {
 
 
 message ChatHistoryPayload {
-  MessageType type = 1;
+  int32 type = 1;
   string avatar = 2;
   string sender_name = 3;
   string corp_name = 4;
