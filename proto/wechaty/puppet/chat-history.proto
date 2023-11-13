@@ -37,6 +37,6 @@ message ChatHistoryPayload {
   string avatar = 2;
   string sender_name = 3;
   string corp_name = 4;
-  string time = 5;
+  int32 time = 5;
   ChatHistoryContent message = 6;
 }
