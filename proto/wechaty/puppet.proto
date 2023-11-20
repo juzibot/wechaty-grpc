@@ -168,12 +168,12 @@ service Puppet {
   }
   rpc ContactSelfRealName (puppet.ContactSelfRealNameRequest) returns (puppet.ContactSelfRealNameResponse) {
     option (google.api.http) = {
-      put: "/contacts/self/realName/{name}"
+      put: "/contacts/self/realName/{real_name}"
     };
   }
   rpc ContactSelfAka (puppet.ContactSelfAkaRequest) returns (puppet.ContactSelfAkaResponse) {
     option (google.api.http) = {
-      put: "/contacts/self/aka/{name}"
+      put: "/contacts/self/aka/{aka}"
     };
   }
   rpc ContactSelfSignature (puppet.ContactSelfSignatureRequest) returns (puppet.ContactSelfSignatureResponse) {
