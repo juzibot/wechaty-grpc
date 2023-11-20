@@ -166,6 +166,16 @@ service Puppet {
       put: "/contacts/self/name/{name}"
     };
   }
+  rpc ContactSelfRealName (puppet.ContactSelfRealNameRequest) returns (puppet.ContactSelfRealNameResponse) {
+    option (google.api.http) = {
+      put: "/contacts/self/realName/{name}"
+    };
+  }
+  rpc ContactSelfAka (puppet.ContactSelfAkaRequest) returns (puppet.ContactSelfAkaResponse) {
+    option (google.api.http) = {
+      put: "/contacts/self/aka/{name}"
+    };
+  }
   rpc ContactSelfSignature (puppet.ContactSelfSignatureRequest) returns (puppet.ContactSelfSignatureResponse) {
     option (google.api.http) = {
       put: "/contacts/self/signature"
