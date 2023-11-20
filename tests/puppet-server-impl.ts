@@ -64,6 +64,18 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  contactSelfRealName: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  contactSelfAka: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   contactPayloadModify: (call, callback) => {
     void call
     void callback
