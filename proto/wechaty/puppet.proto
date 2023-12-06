@@ -753,7 +753,7 @@ service Puppet {
    * Wecom
    */
 
-  rpc GetContactExternalUserId (puppet.GetContactExternalUserIdRequest) returns (GetContactExternalUserIdResponse) {
+  rpc GetContactExternalUserId (puppet.GetContactExternalUserIdRequest) returns (puppet.GetContactExternalUserIdResponse) {
     option (google.api.http) = {
       post: "/contact/externalUserId"
       body: "*"
