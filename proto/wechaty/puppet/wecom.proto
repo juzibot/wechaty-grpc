@@ -1,0 +1,20 @@
+syntax = "proto3";
+package wechaty.puppet;
+
+option go_package       = "github.com/wechaty/go-grpc/wechaty/puppet";
+option java_package     = "io.github.wechaty.grpc.puppet";
+option csharp_namespace = "github.wechaty.grpc.puppet";
+
+message ContactExternalUserIdPair {
+  string contact_id = 1;
+  string external_user_id = 2;
+}
+
+message GetContactExternalUserIdRequest {
+  repeated string contact_ids = 1;
+  string service_provider_id = 2;
+}
+
+message GetContactExternalUserIdResponse {
+  repeated ContactExternalUserIdPair contact_external_user_id_paris = 1;
+}

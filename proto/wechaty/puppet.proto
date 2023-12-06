@@ -30,6 +30,7 @@ import "wechaty/puppet/conversation.proto";
 import "wechaty/puppet/post.proto";
 import "wechaty/puppet/moment.proto";
 import "wechaty/puppet/verify-code.proto";
+import "wechaty/puppet/wecom.proto";
 
 option java_package="io.github.wechaty.grpc";
 option go_package="github.com/wechaty/go-grpc/wechaty";
@@ -748,6 +749,16 @@ service Puppet {
     };
   }
 
+  /**
+   * Wecom
+   */
+
+  rpc GetContactExternalUserId (puppet.GetContactExternalUserIdRequest) returns (GetContactExternalUserIdResponse) {
+    option (google.api.http) = {
+      post: "/contact/externalUserId"
+      body: "*"
+    };
+  }
 
   /**
    * File/Blob download & upload
