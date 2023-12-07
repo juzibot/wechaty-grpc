@@ -16,5 +16,5 @@ message GetContactExternalUserIdRequest {
 }
 
 message GetContactExternalUserIdResponse {
-  repeated ContactExternalUserIdPair contact_external_user_id_paris = 1;
+  repeated ContactExternalUserIdPair contact_external_user_id_pairs = 1;
 }
