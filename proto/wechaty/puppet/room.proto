@@ -128,6 +128,8 @@ message RoomAdminsRequest {
 
 message RoomAdminsResponse {}
 
-message RoomDismissRequest {}
+message RoomDismissRequest {
+  string id = 1;
+}
 
 message RoomDismissResponse {}
