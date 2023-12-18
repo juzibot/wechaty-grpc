@@ -76,6 +76,7 @@
     "npm-run-all": "^4.1.5",
     "request": "^2.88.2",
     "shx": "^0.3.3",
+    "ts-node": "10.9.1",
     "ts-protoc-gen": "^0.15.0",
     "tstest": "^0.7.3",
     "typescript": "4.7.4"
