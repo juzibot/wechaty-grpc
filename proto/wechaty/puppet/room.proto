@@ -127,3 +127,7 @@ message RoomAdminsRequest {
 }
 
 message RoomAdminsResponse {}
+
+message RoomDismissRequest {}
+
+message RoomDismissResponse {}

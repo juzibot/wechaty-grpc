@@ -556,6 +556,11 @@ service Puppet {
     };
   }
 
+  rpc RoomDismiss (puppet.RoomDismissRequest) returns (puppet.RoomDismissResponse) {
+    option (google.api.http) = {
+      delete: "/rooms/{id}"
+    };
+  }
   /**
    *
    * Room Member
