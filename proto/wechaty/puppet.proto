@@ -765,6 +765,25 @@ service Puppet {
     };
   }
 
+  rpc GetRoomAntiSpamStrategyList (puppet.GetRoomAntiSpamStrategyListRequest) returns (puppet.GetRoomAntiSpamStrategyListResponse) {
+    option (google.api.http) = {
+      get: "/wecom/roomAntiSpamStrategyList"
+    };
+  }
+
+  rpc GetRoomAntiSpamStrategyEffectRoomList (puppet.GetRoomAntiSpamStrategyEffectRoomListRequest) returns (puppet.GetRoomAntiSpamStrategyEffectRoomListResponse) {
+    option (google.api.http) = {
+      get: "/wecom/roomAntiSpamStrategy/{strategy_id}/rooms"
+    };
+  }
+
+  rpc ApplyRoomAntiSpamStrategy (puppet.ApplyRoomAntiSpamStrategyRequest) returns (puppet.ApplyRoomAntiSpamStrategyResponse) {
+    option (google.api.http) = {
+      post: "/wecom/roomAntiSpamStrategy/apply",
+      body: "*"
+    };
+  }
+
   /**
    * File/Blob download & upload
    */

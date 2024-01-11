@@ -10,6 +10,11 @@ message ContactExternalUserIdPair {
   string external_user_id = 2;
 }
 
+message RoomAntiSpamStrategy {
+  string id = 1;
+  string name = 2;
+}
+
 message GetContactExternalUserIdRequest {
   repeated string contact_ids = 1;
   string service_provider_id = 2;
@@ -18,3 +23,25 @@ message GetContactExternalUserIdRequest {
 message GetContactExternalUserIdResponse {
   repeated ContactExternalUserIdPair contact_external_user_id_pairs = 1;
 }
+
+message GetRoomAntiSpamStrategyListRequest {}
+
+message GetRoomAntiSpamStrategyListResponse {
+  repeated RoomAntiSpamStrategy strategies = 1;
+}
+
+message GetRoomAntiSpamStrategyEffectRoomListRequest {
+  string strategy_id = 1;
+}
+
+message GetRoomAntiSpamStrategyEffectRoomListResponse {
+  repeated string room_ids = 1;
+}
+
+message ApplyRoomAntiSpamStrategyRequest {
+  string strategy_id = 1;
+  repeated string room_ids = 2;
+  bool active = 3;
+}
+
+message ApplyRoomAntiSpamStrategyResponse {}
