@@ -10,618 +10,618 @@ type IPuppetServer = puppet.IPuppetServer
  */
 export const puppetServerImpl: IPuppetServer = {
 
-  contactAlias: (call: any, callback: any) => {
+  contactAlias: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  contactAvatar: (call: any, callback: any) => {
+  contactAvatar: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  contactCorporationRemark: (call: any, callback: any) => {
+  contactCorporationRemark: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented')
   },
 
-  contactDescription: (call: any, callback: any) => {
+  contactDescription: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented')
   },
 
-  contactDelete: (call: any, callback: any) => {
+  contactDelete: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented')
   },
 
-  contactList: (call: any, callback: any) => {
+  contactList: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  contactPayload: (call: any, callback: any) => {
+  contactPayload: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  contactPhone: (call: any, callback: any) => {
+  contactPhone: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  contactSelfName: (call: any, callback: any) => {
+  contactSelfName: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  contactSelfRealName: (call: any, callback: any) => {
+  contactSelfRealName: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  contactSelfAka: (call: any, callback: any) => {
+  contactSelfAka: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  contactPayloadModify: (call: any, callback: any) => {
+  contactPayloadModify: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  contactSelfQRCode: (call: any, callback: any) => {
+  contactSelfQRCode: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  contactSelfSignature: (call: any, callback: any) => {
+  contactSelfSignature: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  contactSelfRoomAlias: (call: any, callback: any) => {
+  contactSelfRoomAlias: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  conversationRead: (call: any, callback: any) => {
+  conversationRead: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  ding: (call: any, callback: any) => {
+  ding: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  currentUser: (call: any, callback: any) => {
+  currentUser: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  dirtyPayload: (call: any, callback: any) => {
+  dirtyPayload: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  event: (streamnigCall: any) => {
+  event: (streamnigCall) => {
     void streamnigCall
     throw new Error('not implemented.')
 
   },
 
-  friendshipAccept: (call: any, callback: any) => {
+  friendshipAccept: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  friendshipAdd: (call: any, callback: any) => {
+  friendshipAdd: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  friendshipPayload: (call: any, callback: any) => {
+  friendshipPayload: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  friendshipSearchPhone: (call: any, callback: any) => {
+  friendshipSearchPhone: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  friendshipSearchWeixin: (call: any, callback: any) => {
+  friendshipSearchWeixin: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  friendshipSearchHandle: (call: any, callback: any) => {
+  friendshipSearchHandle: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  logout: (call: any, callback: any) => {
+  logout: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageContact: (call: any, callback: any) => {
+  messageContact: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageFile: (call: any, callback: any) => {
+  messageFile: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageCallRecord: (call: any, callback: any) => {
+  messageCallRecord: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageChatHistory: (call: any, callback: any) => {
+  messageChatHistory: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageForward: (call: any, callback: any) => {
+  messageForward: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageImage: (call: any, callback: any) => {
+  messageImage: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageLocation: (call: any, callback: any) => {
+  messageLocation: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageMiniProgram: (call: any, callback: any) => {
+  messageMiniProgram: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messagePayload: (call: any, callback: any) => {
+  messagePayload: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageRecall: (call: any, callback: any) => {
+  messageRecall: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageSendContact: (call: any, callback: any) => {
+  messageSendContact: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageSendFile: (call: any, callback: any) => {
+  messageSendFile: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageSendLocation: (call: any, callback: any) => {
+  messageSendLocation: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageSendMiniProgram: (call: any, callback: any) => {
+  messageSendMiniProgram: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageSendText: (call: any, callback: any) => {
+  messageSendText: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageSendUrl: (call: any, callback: any) => {
+  messageSendUrl: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageUrl: (call: any, callback: any) => {
+  messageUrl: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageSendChannel: (call: any, callback: any) => {
+  messageSendChannel: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messageChannel: (call: any, callback: any) => {
+  messageChannel: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  messagePreview: (call: any, callback: any) => {
+  messagePreview: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  getMessageBroadcastTarget: (call: any, callback: any) => {
+  getMessageBroadcastTarget: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  createMessageBroadcast: (call: any, callback: any) => {
+  createMessageBroadcast: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  getMessageBroadcastStatus: (call: any, callback: any) => {
+  getMessageBroadcastStatus: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomAdd: (call: any, callback: any) => {
+  roomAdd: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomAnnounce: (call: any, callback: any) => {
+  roomAnnounce: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomAvatar: (call: any, callback: any) => {
+  roomAvatar: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomCreate: (call: any, callback: any) => {
+  roomCreate: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomDel: (call: any, callback: any) => {
+  roomDel: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomInvitationAccept: (call: any, callback: any) => {
+  roomInvitationAccept: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomInvitationPayload: (call: any, callback: any) => {
+  roomInvitationPayload: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomList: (call: any, callback: any) => {
+  roomList: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomMemberList: (call: any, callback: any) => {
+  roomMemberList: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomMemberPayload: (call: any, callback: any) => {
+  roomMemberPayload: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomPayload: (call: any, callback: any) => {
+  roomPayload: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomQRCode: (call: any, callback: any) => {
+  roomQRCode: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomQuit: (call: any, callback: any) => {
+  roomQuit: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomTopic: (call: any, callback: any) => {
+  roomTopic: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomRemark: (call: any, callback: any) => {
+  roomRemark: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomOwnerTransfer: (call: any, callback: any) => {
+  roomOwnerTransfer: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomDismiss: (call: any, callback: any) => {
+  roomDismiss: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomPermission: (call: any, callback: any) => {
+  roomPermission: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomAddAdmins: (call: any, callback: any) => {
+  roomAddAdmins: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  roomDelAdmins: (call: any, callback: any) => {
+  roomDelAdmins: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  start: (call: any, callback: any) => {
+  start: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  stop: (call: any, callback: any) => {
+  stop: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagContactTagAdd: (call: any, callback: any) => {
+  tagContactTagAdd: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagContactTagRemove: (call: any, callback: any) => {
+  tagContactTagRemove: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagGroupAdd: (call: any, callback: any) => {
+  tagGroupAdd: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagGroupDelete: (call: any, callback: any) => {
+  tagGroupDelete: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagTagAdd: (call: any, callback: any) => {
+  tagTagAdd: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagTagDelete: (call: any, callback: any) => {
+  tagTagDelete: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagGroupList: (call: any, callback: any) => {
+  tagGroupList: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagGroupTagList: (call: any, callback: any) => {
+  tagGroupTagList: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagTagList: (call: any, callback: any) => {
+  tagTagList: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagContactTagList: (call: any, callback: any) => {
+  tagContactTagList: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagTagContactList: (call: any, callback: any) => {
+  tagTagContactList: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagPayload: (call: any, callback: any) => {
+  tagPayload: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  tagGroupPayload: (call: any, callback: any) => {
+  tagGroupPayload: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  momentPublish: (call: any, callback: any) => {
+  momentPublish: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  momentUnpublish: (call: any, callback: any) => {
+  momentUnpublish: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  postTap: (call: any, callback: any) => {
+  postTap: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  momentSignature: (call: any, callback: any) => {
+  momentSignature: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  momentCoverage: (call: any, callback: any) => {
+  momentCoverage: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  postPayload: (call: any, callback: any) => {
+  postPayload: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  postPayloadSayable: (call: any, callback: any) => {
+  postPayloadSayable: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  momentVisibleList: (call: any, callback: any) => {
+  momentVisibleList: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  version: (call: any, callback: any) => {
+  version: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  enterVerifyCode: (call: any, callback: any) => {
+  enterVerifyCode: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  cancelVerifyCode: (call: any, callback: any) => {
+  cancelVerifyCode: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  refreshQRCode: (call: any, callback: any) => {
+  refreshQRCode: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  getContactExternalUserId: (call: any, callback: any) => {
+  getContactExternalUserId: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  GetRoomAntiSpamStrategyList: (call: any, callback: any) => {
+  getRoomAntiSpamStrategyList: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  GetRoomAntiSpamStrategyEffectRoomList: (call: any, callback: any) => {
+  getRoomAntiSpamStrategyEffectRoomList: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  ApplyRoomAntiSpamStrategy: (call: any, callback: any) => {
+  applyRoomAntiSpamStrategy: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
   },
 
-  download: (call: any) => {
+  download: (call) => {
     void call
     throw new Error('not implemented.')
   },
 
-  upload: (call: any, callback: any) => {
+  upload: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
