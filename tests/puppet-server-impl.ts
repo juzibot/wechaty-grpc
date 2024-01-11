@@ -598,6 +598,24 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  GetRoomAntiSpamStrategyList: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  GetRoomAntiSpamStrategyEffectRoomList: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  ApplyRoomAntiSpamStrategy: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   download: (call) => {
     void call
     throw new Error('not implemented.')
