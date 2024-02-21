@@ -71,6 +71,16 @@ message TagTagDeleteRequest {
 message TagTagDeleteResponse {
 }
 
+message TagTagModifyRequest {
+  string tag_id       = 1;
+  string tag_new_name = 2;
+}
+
+message TagTagModifyResponse {
+  string tag_id = 1;
+  string tag_name = 2;
+}
+
 message TagGroupListRequest {
 }
 
