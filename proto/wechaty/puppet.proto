@@ -649,7 +649,7 @@ service Puppet {
     };
   }
 
-  rpc tagTagModify (puppet.TagTagModifyRequest) returns (puppet.TagTagModifyResponse) {
+  rpc TagTagModify (puppet.TagTagModifyRequest) returns (puppet.TagTagModifyResponse) {
     option (google.api.http) = {
       post: "/tag/modify"
       body: "*"
