@@ -1,7 +1,7 @@
 /* eslint-disable sort-keys */
 import type {
   puppet,
-}                       from '../src/mod.js'
+} from '../src/mod.js'
 
 type IPuppetServer = puppet.IPuppetServer
 
@@ -473,6 +473,12 @@ export const puppetServerImpl: IPuppetServer = {
   },
 
   tagTagDelete: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  tagTagModify: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
