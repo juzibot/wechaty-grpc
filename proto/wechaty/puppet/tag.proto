@@ -55,30 +55,38 @@ message TagGroupDeleteRequest {
 message TagGroupDeleteResponse {
 }
 
+message TagTagInfo {
+  string tag_id   = 1;
+  string tag_name = 2;
+}
+
+message TagTagNewInfo {
+  string tag_id   = 1;
+  string tag_new_name = 2;
+}
+
 message TagTagAddRequest {
-  string tag_name     = 1;
-  string tag_group_id = 2;
+  string   tag_group_id         = 2;
+  repeated string tag_name_list = 3;
 }
 
 message TagTagAddResponse {
-  string tag_id = 1;
+  repeated TagTagInfo tag_info_list = 2;
 }
 
 message TagTagDeleteRequest {
-  string tag_id = 1;
+  repeated string tag_id_list = 2;
 }
 
 message TagTagDeleteResponse {
 }
 
 message TagTagModifyRequest {
-  string tag_id       = 1;
-  string tag_new_name = 2;
+  repeated TagTagNewInfo tag_new_info_list = 2;
 }
 
 message TagTagModifyResponse {
-  string tag_id = 1;
-  string tag_name = 2;
+  repeated TagTagInfo tag_info_list = 2;
 }
 
 message TagGroupListRequest {
