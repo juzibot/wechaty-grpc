@@ -66,15 +66,18 @@ message TagTagNewInfo {
 }
 
 message TagTagAddRequest {
-  string   tag_group_id         = 2;
+  string   tag_name        = 1 [deprecated = true];
+  string   tag_group_id    = 2;
   repeated string tag_name = 3;
 }
 
 message TagTagAddResponse {
+  string   tag_id              = 1 [deprecated = true];
   repeated TagTagInfo tag_info = 2;
 }
 
 message TagTagDeleteRequest {
+  string   tag_id        = 1 [deprecated = true];
   repeated string tag_id = 2;
 }
 
@@ -82,11 +85,15 @@ message TagTagDeleteResponse {
 }
 
 message TagTagModifyRequest {
-  repeated TagTagNewInfo tag_new_info = 2;
+  string   tag_id                     = 1 [deprecated = true];
+  string   tag_new_name               = 2 [deprecated = true];
+  repeated TagTagNewInfo tag_new_info = 3;
 }
 
 message TagTagModifyResponse {
-  repeated TagTagInfo tag_info = 2;
+  string   tag_id              = 1 [deprecated = true];
+  string   tag_name            = 2 [deprecated = true];
+  repeated TagTagInfo tag_info = 3;
 }
 
 message TagGroupListRequest {
