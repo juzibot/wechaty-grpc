@@ -67,26 +67,26 @@ message TagTagNewInfo {
 
 message TagTagAddRequest {
   string   tag_group_id         = 2;
-  repeated string tag_name_list = 3;
+  repeated string tag_name = 3;
 }
 
 message TagTagAddResponse {
-  repeated TagTagInfo tag_info_list = 2;
+  repeated TagTagInfo tag_info = 2;
 }
 
 message TagTagDeleteRequest {
-  repeated string tag_id_list = 2;
+  repeated string tag_id = 2;
 }
 
 message TagTagDeleteResponse {
 }
 
 message TagTagModifyRequest {
-  repeated TagTagNewInfo tag_new_info_list = 2;
+  repeated TagTagNewInfo tag_new_info = 2;
 }
 
 message TagTagModifyResponse {
-  repeated TagTagInfo tag_info_list = 2;
+  repeated TagTagInfo tag_info = 2;
 }
 
 message TagGroupListRequest {
