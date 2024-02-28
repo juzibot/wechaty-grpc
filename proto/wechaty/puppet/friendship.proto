@@ -7,6 +7,7 @@ option csharp_namespace = "github.wechaty.grpc.puppet";
 
 import "google/protobuf/wrappers.proto";
 import "wechaty/puppet/referrer.proto";
+import "wechaty/puppet/contact.proto";
 
 enum FriendshipType { // 事件类型
   FRIENDSHIP_TYPE_UNSPECIFIED = 0; // 不明确
@@ -55,6 +56,7 @@ message FriendshipPayloadResponse {
 
 message FriendshipSearchPhoneRequest {
   string phone = 1;
+  ContactType type = 2;
 }
 message FriendshipSearchPhoneResponse {
   // nullable
@@ -85,6 +87,7 @@ message FriendshipSearchHandleRequest {
    * TODO: rename `weixin` to `handle` in v2.0.0
    */
   string weixin = 1;
+  ContactType type = 2;
 }
 message FriendshipSearchHandleResponse {
   // nullable
