@@ -791,6 +791,12 @@ service Puppet {
     };
   }
 
+  rpc GetCorpMessageInterceptionStrategies (puppet.GetCorpMessageInterceptionStrategiesRequest) returns (puppet.GetCorpMessageInterceptionStrategiesResponse) {
+    option (google.api.http) = {
+      get: "/wecom/corpMessageInterceptionStrategyList"
+    };
+  }
+
   /**
    * File/Blob download & upload
    */

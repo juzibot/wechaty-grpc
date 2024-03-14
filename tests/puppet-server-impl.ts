@@ -622,6 +622,12 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  getCorpMessageInterceptionStrategies: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   download: (call) => {
     void call
     throw new Error('not implemented.')

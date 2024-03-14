@@ -45,3 +45,23 @@ message ApplyRoomAntiSpamStrategyRequest {
 }
 
 message ApplyRoomAntiSpamStrategyResponse {}
+
+enum CorpMessageInterceptionType {
+  Interception_Type_Hard = 0;
+  Interception_Type_Soft = 1;
+}
+
+message CorpMessageInterceptionStrategy {
+  string name = 1;
+  repeated string words = 2;
+  bool phone_number = 3;
+  bool email = 4;
+  bool red_pocket = 5;
+  CorpMessageInterceptionType type = 6;
+}
+
+message GetCorpMessageInterceptionStrategiesRequest {}
+
+message GetCorpMessageInterceptionStrategiesResponse {
+  repeated CorpMessageInterceptionStrategy strategies = 1;
+}
