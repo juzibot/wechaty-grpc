@@ -14,7 +14,7 @@ import {
 }                     from '../tests/puppet-server-impl.js'
 
 test('integration testing', async t => {
-  const ENDPOINT = 'localhost:18788'
+  const ENDPOINT = 'localhost:18789'
 
   const DING_DATA_LIST  = [ 'data1', 'data2' ]
   const EVENT_DATA_LIST = [] as string[]
