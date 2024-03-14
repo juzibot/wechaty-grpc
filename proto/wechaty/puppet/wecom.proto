@@ -56,7 +56,7 @@ message CorpMessageInterceptionStrategy {
   repeated string words = 2;
   bool phone_number = 3;
   bool email = 4;
-  bool red_pocket = 5;
+  bool red_packet = 5;
   CorpMessageInterceptionType type = 6;
 }
 
