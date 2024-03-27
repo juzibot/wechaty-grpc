@@ -27,6 +27,7 @@ message RoomPayloadResponse {
   string   handle            = 7; // IM内部id，企微中为群的chat_id
   string   additional_info   = 8;
   string   room_remark       = 9;
+  bool     external          = 10;
 }
 
 message RoomAddRequest {
