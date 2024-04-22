@@ -6,6 +6,7 @@ option java_package     = "io.github.wechaty.grpc.puppet";
 option csharp_namespace = "github.wechaty.grpc.puppet";
 
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
 
 import "wechaty/puppet/util.proto";
 
@@ -28,6 +29,7 @@ message RoomPayloadResponse {
   string   additional_info   = 8;
   string   room_remark       = 9;
   bool     external          = 10;
+  google.protobuf.Timestamp create_time = 11;
 }
 
 message RoomAddRequest {
