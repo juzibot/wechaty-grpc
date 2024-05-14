@@ -19,7 +19,7 @@ enum PostType {
   POST_TYPE_MESSAGE = 3; // 消息——富媒体消息
   POST_TYPE_BROADCAST = 4; // 群发
   POST_TYPE_TEXT_BUTTON = 5; // puppet-mini 按钮消息
-  POST_TYPE_GOODS_CARD = 4; // puppet-mini 商品消息
+  POST_TYPE_GOODS_CARD = 6; // puppet-mini 商品消息
 }
 
 enum SayableType {
