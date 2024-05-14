@@ -18,6 +18,8 @@ enum PostType {
   POST_TYPE_CHANNEL = 2; // 视频号——原始设计走post，实际目前采用message
   POST_TYPE_MESSAGE = 3; // 消息——富媒体消息
   POST_TYPE_BROADCAST = 4; // 群发
+  POST_TYPE_TEXT_BUTTON = 5; // puppet-mini 按钮消息
+  POST_TYPE_GOODS_CARD = 4; // puppet-mini 商品消息
 }
 
 enum SayableType {
