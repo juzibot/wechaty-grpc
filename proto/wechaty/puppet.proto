@@ -434,7 +434,12 @@ service Puppet {
       body: "*"
     };
   }
-
+  rpc MessageSendPost (puppet.MessageSendPostRequest) returns (puppet.MessageSendPostResponse) {
+    option (google.api.http) = {
+      post: "/conversations/{conversation_id}/post"
+      body: "*"
+    };
+  }
   rpc MessagePreview (puppet.MessagePreviewRequest) returns (puppet.MessagePreviewResponse) {
     option (google.api.http) = {
       get: "/message/{id}/preview"

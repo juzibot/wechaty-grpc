@@ -239,6 +239,15 @@ message MessageSendUrlResponse {
   string id = 2;
 }
 
+message MessageSendPostRequest {
+  string conversation_id = 1; // 对话id
+  PostPayloadClient content = 2; // 发送的post内容
+}
+
+message MessageSendPostResponse {
+  string id = 1;
+}
+
 message MessageRecallRequest {
   string id = 1;
 }
