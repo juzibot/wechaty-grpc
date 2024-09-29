@@ -114,6 +114,7 @@ message RoomPermissionRequest {
   OptionalBoolean admin_only_at_all = 4;
   OptionalBoolean mute_all = 5;
   OptionalBoolean forbid_room_topic_edit = 6;
+  OptionalBoolean disable_member_mutual_add = 7;
 }
 
 message RoomPermissionResponse {
@@ -122,6 +123,7 @@ message RoomPermissionResponse {
   OptionalBoolean admin_only_at_all = 3;
   OptionalBoolean mute_all = 4;
   OptionalBoolean forbid_room_topic_edit = 5;
+  OptionalBoolean disable_member_mutual_add = 6;
 }
 
 message RoomAdminsRequest {
