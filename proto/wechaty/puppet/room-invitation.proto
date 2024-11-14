@@ -49,3 +49,11 @@ message RoomInvitationAcceptRequest {
   string id = 1;
 }
 message RoomInvitationAcceptResponse {}
+
+message RoomInvitationAcceptByQRCodeRequest {
+  string qrcode = 1;
+}
+message RoomInvitationAcceptByQRCodeResponse {
+  string room_id = 1;
+  string chat_id = 2;
+}

@@ -527,6 +527,12 @@ service Puppet {
       get: "/rooms/{id}/qrcode"
     };
   }
+  rpc RoomParseDynamicQRCode (puppet.RoomParseDynamicQRCodeRequest) returns (puppet.RoomParseDynamicQRCodeResponse) {
+    option (google.api.http) = {
+      get: "/rooms/{id}/parse-dynamic-qrcode"
+    };
+  }
+
   rpc RoomAnnounce (puppet.RoomAnnounceRequest) returns (puppet.RoomAnnounceResponse) {
     option (google.api.http) = {
       get: "/rooms/{id}/announcement"  // TODO: disable other get parameters
@@ -596,6 +602,12 @@ service Puppet {
   rpc RoomInvitationAccept (puppet.RoomInvitationAcceptRequest) returns (puppet.RoomInvitationAcceptResponse) {
     option (google.api.http) = {
       put: "/room-invitations/{id}/accept"
+    };
+  }
+  rpc RoomInvitationAcceptByQRCode (puppet.RoomInvitationAcceptByQRCodeRequest) returns (puppet.RoomInvitationAcceptByQRCodeResponse) {
+    option (google.api.http) = {
+      post: "/room-invitations/accept-by-qrcode"
+      body: "*"
     };
   }
 
