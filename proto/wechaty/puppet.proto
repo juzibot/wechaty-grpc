@@ -606,8 +606,7 @@ service Puppet {
   }
   rpc RoomInvitationAcceptByQRCode (puppet.RoomInvitationAcceptByQRCodeRequest) returns (puppet.RoomInvitationAcceptByQRCodeResponse) {
     option (google.api.http) = {
-      post: "/room-invitations/accept-by-qrcode"
-      body: "*"
+      put: "/room-invitations/{qrcode}/accept-by-qrcode"
     };
   }
 
