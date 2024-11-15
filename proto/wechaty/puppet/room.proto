@@ -83,6 +83,15 @@ message RoomQRCodeResponse {
   string qrcode = 1;
 }
 
+message RoomParseDynamicQRCodeRequest {
+  string url = 1; // 群活码链接
+}
+message RoomParseDynamicQRCodeResponse {
+  string qrcode = 1; // 二维码url
+  string qrcode_image_url = 2; // 二维码图片url
+  string room_name = 3; // 群名称
+}
+
 message RoomAnnounceRequest { // 群公告
   string                      id                           = 1;
   google.protobuf.StringValue text_string_value_deprecated = 2 [deprecated = true];  // DEPRECATED, will be removed after Dec 31, 2022

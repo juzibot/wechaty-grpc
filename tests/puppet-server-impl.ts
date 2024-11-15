@@ -352,6 +352,12 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  roomInvitationAcceptByQRCode: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   roomInvitationPayload: (call, callback) => {
     void call
     void callback
@@ -383,6 +389,12 @@ export const puppetServerImpl: IPuppetServer = {
   },
 
   roomQRCode: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  roomParseDynamicQRCode: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
