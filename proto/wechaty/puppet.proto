@@ -529,7 +529,7 @@ service Puppet {
   }
   rpc RoomParseDynamicQRCode (puppet.RoomParseDynamicQRCodeRequest) returns (puppet.RoomParseDynamicQRCodeResponse) {
     option (google.api.http) = {
-      get: "/rooms/{id}/parse-dynamic-qrcode"
+      get: "/rooms/{url}/parse-dynamic-qrcode"
     };
   }
 
