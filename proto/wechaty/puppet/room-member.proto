@@ -36,3 +36,12 @@ message RoomMemberListRequest {
 message RoomMemberListResponse {
   repeated string member_ids = 1;
 }
+
+message BatchRoomMemberPayloadRequest {
+  string room_id = 1;
+  repeated string member_ids = 2;
+}
+
+message BatchRoomMemberPayloadResponse {
+  repeated RoomMemberPayloadResponse members = 1;
+}

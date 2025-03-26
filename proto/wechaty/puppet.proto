@@ -589,6 +589,13 @@ service Puppet {
     };
   }
 
+  rpc BatchRoomMemberPayload (puppet.BatchRoomMemberPayloadRequest) returns (puppet.BatchRoomMemberPayloadResponse) {
+    option (google.api.http) = {
+      post: "/rooms/{id}/members/batch-payload"
+      body: "*"
+    };
+  }
+
   /**
    *
    * Room Invitation
