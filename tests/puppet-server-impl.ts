@@ -382,6 +382,12 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  batchRoomMemberPayload: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   roomPayload: (call, callback) => {
     void call
     void callback
