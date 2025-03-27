@@ -43,5 +43,5 @@ message BatchRoomMemberPayloadRequest {
 }
 
 message BatchRoomMemberPayloadResponse {
-  map<string, RoomMemberPayloadResponse> members = 1;
+  repeated RoomMemberPayloadResponse member_payloads = 1;
 }

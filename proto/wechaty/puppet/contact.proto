@@ -67,6 +67,14 @@ message ContactPayloadResponse {
   string aka = 22;
 }
 
+message BatchContactPayloadRequest {
+  repeated string ids = 1;
+}
+
+message BatchContactPayloadResponse {
+  repeated ContactPayloadResponse contact_payloads = 1;
+}
+
 message ContactSelfQRCodeRequest {}
 message ContactSelfQRCodeResponse {
   string qrcode = 1;

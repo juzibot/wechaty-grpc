@@ -52,6 +52,12 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  batchContactPayload: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   contactPhone: (call, callback) => {
     void call
     void callback

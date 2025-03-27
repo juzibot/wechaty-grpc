@@ -212,6 +212,13 @@ service Puppet {
     };
   }
 
+  rpc BatchContactPayload (puppet.BatchContactPayloadRequest) returns (puppet.BatchContactPayloadResponse) {
+    option (google.api.http) = {
+      post: "/contacts/batch-payload"
+      body: "*"
+    };
+  }
+
   rpc ContactAlias (puppet.ContactAliasRequest) returns (puppet.ContactAliasResponse) {
     option (google.api.http) = {
       put: "/contacts/{id}/alias"
