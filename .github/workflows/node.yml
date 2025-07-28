@@ -15,8 +15,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 16
           cache: npm
@@ -26,7 +26,7 @@ jobs:
         run: npm install typescript@4.7.3
 
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v4
         with:
           go-version: 1.21
       - name: Install Protoc
@@ -48,8 +48,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 16
           cache: npm
@@ -59,7 +59,7 @@ jobs:
         run: npm install typescript@4.7.3
 
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v4
         with:
           go-version: 1.21
 
@@ -83,8 +83,8 @@ jobs:
     needs: [build, pack]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
@@ -95,7 +95,7 @@ jobs:
         run: npm install typescript@4.7.3
 
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v4
         with:
           go-version: 1.21
       - name: Install Protoc

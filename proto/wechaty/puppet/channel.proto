@@ -18,6 +18,10 @@ message ChannelPayload {
   // 视频号直播专属
   string object_id = 9;
   string object_nonce_id = 10;
+
+  // 视频号名片 SphProfileNew 消息类型专属字段
+  string auth_icon_url = 11; // 认证图标URL
+  string auth_job = 12; // 认证职业
 }
 
 enum ChannelFeedType {
