@@ -9,6 +9,7 @@ import "wechaty/puppet/location.proto";
 import "wechaty/puppet/mini-program.proto";
 import "wechaty/puppet/url-link.proto";
 import "wechaty/puppet/channel.proto";
+import "wechaty/puppet/channel-card.proto";
 
 enum ChatHistoryContentType {
   TEXT = 0;
@@ -18,6 +19,7 @@ enum ChatHistoryContentType {
   MINI_PROGRAM = 4;
   CHANNEL = 5;
   CHAT_HISTORY = 6;
+  ChANNEL_CARD=7;
 }
 
 message ChatHistoryContent {
@@ -29,6 +31,7 @@ message ChatHistoryContent {
   MiniProgramPayload mini_program = 6;
   ChannelPayload channel = 7;
   repeated ChatHistoryPayload chat_history = 8;
+  ChannelCardPayload channel_card = 9;
 }
 
 
