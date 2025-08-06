@@ -6,10 +6,10 @@ option java_package     = "io.github.wechaty.grpc.puppet";
 option csharp_namespace = "github.wechaty.grpc.puppet";
 
 message ChannelCardPayload {
-  string avatar    = 1; // 头像
-  string extras    = 2; // 额外信息
-  string nickname  = 3; // 用户名
-  string url       = 4; // 视频号地址
+  string avatar        = 1; // 头像
+  string extras        = 2; // 额外信息
+  string nickname      = 3; // 用户名
+  string url           = 4; // 视频号地址
   string auth_icon_url = 5; // 认证图标URL
-  string auth_job = 6; // 认证职业
+  string auth_job      = 6; // 认证职业
 }
