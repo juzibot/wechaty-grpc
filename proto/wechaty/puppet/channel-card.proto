@@ -5,7 +5,7 @@ option go_package       = "github.com/wechaty/go-grpc/wechaty/puppet";
 option java_package     = "io.github.wechaty.grpc.puppet";
 option csharp_namespace = "github.wechaty.grpc.puppet";
 
-message ChannelPayload {
+message ChannelCardPayload {
   string avatar    = 1; // 头像
   string extras    = 2; // 额外信息
   string nickname  = 3; // 用户名
