@@ -19,7 +19,7 @@ enum ChatHistoryContentType {
   MINI_PROGRAM = 4;
   CHANNEL = 5;
   CHAT_HISTORY = 6;
-  ChANNEL_CARD=7;
+  ChANNEL_CARD = 7;
 }
 
 message ChatHistoryContent {

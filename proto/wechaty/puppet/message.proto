@@ -27,27 +27,27 @@ import "wechaty/puppet/channel-card.proto";
 enum MessageType { // 消息类型
   MESSAGE_TYPE_UNSPECIFIED   = 0;
 
-  MESSAGE_TYPE_ATTACHMENT    = 1; // 文件消息
-  MESSAGE_TYPE_AUDIO         = 2; // 音频
-  MESSAGE_TYPE_CONTACT       = 3; // 名片
-  MESSAGE_TYPE_CHAT_HISTORY  = 4; // 聊天记录，wxwork暂不支持
-  MESSAGE_TYPE_EMOTCION      = 5; // 表情
-  MESSAGE_TYPE_IMAGE         = 6; // 图片
-  MESSAGE_TYPE_TEXT          = 7; // 文本
-  MESSAGE_TYPE_LOCATION      = 8; // 地址
-  MESSAGE_TYPE_MINI_PROGRAM  = 9; // 小程序
-  MESSAGE_TYPE_GROUP_NOTE    = 10;// 群接龙消息，wxwork中没有
-  MESSAGE_TYPE_TRANSFER      = 11;// 转账，wxwork中没有
-  MESSAGE_TYPE_RED_ENVELOPE  = 12;// 红包，wxwork中没有
-  MESSAGE_TYPE_RECALLED      = 13;// 撤回
-  MESSAGE_TYPE_URL           = 14;// 链接
-  MESSAGE_TYPE_VIDEO         = 15;// 视频
-  MESSAGE_TYPE_POST          = 16;// 特殊的复合类型，wxwork中没有
-  MESSAGE_TYPE_CHANNEL       = 17;// 视频号
-  MESSAGE_TYPE_SYSTEM        = 18;// 系统消息
-  MESSAGE_TYPE_MARKDOWN      = 19;// MarkDown
-  MESSAGE_TYPE_CALL_RECORD   = 20;// 通话记录
-  MESSAGE_TYPE_CHANNEL_CARD  = 21;// 视频号名片
+  MESSAGE_TYPE_ATTACHMENT    = 1;  // 文件消息
+  MESSAGE_TYPE_AUDIO         = 2;  // 音频
+  MESSAGE_TYPE_CONTACT       = 3;  // 名片
+  MESSAGE_TYPE_CHAT_HISTORY  = 4;  // 聊天记录，wxwork暂不支持
+  MESSAGE_TYPE_EMOTCION      = 5;  // 表情
+  MESSAGE_TYPE_IMAGE         = 6;  // 图片
+  MESSAGE_TYPE_TEXT          = 7;  // 文本
+  MESSAGE_TYPE_LOCATION      = 8;  // 地址
+  MESSAGE_TYPE_MINI_PROGRAM  = 9;  // 小程序
+  MESSAGE_TYPE_GROUP_NOTE    = 10; // 群接龙消息，wxwork中没有
+  MESSAGE_TYPE_TRANSFER      = 11; // 转账，wxwork中没有
+  MESSAGE_TYPE_RED_ENVELOPE  = 12; // 红包，wxwork中没有
+  MESSAGE_TYPE_RECALLED      = 13; // 撤回
+  MESSAGE_TYPE_URL           = 14; // 链接
+  MESSAGE_TYPE_VIDEO         = 15; // 视频
+  MESSAGE_TYPE_POST          = 16; // 特殊的复合类型，wxwork中没有
+  MESSAGE_TYPE_CHANNEL       = 17; // 视频号
+  MESSAGE_TYPE_SYSTEM        = 18; // 系统消息
+  MESSAGE_TYPE_MARKDOWN      = 19; // MarkDown
+  MESSAGE_TYPE_CALL_RECORD   = 20; // 通话记录
+  MESSAGE_TYPE_CHANNEL_CARD  = 21; // 视频号名片
 }
 
 enum TextContentType {
