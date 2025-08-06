@@ -376,6 +376,11 @@ service Puppet {
       get: "/message/{id}/channel"
     };
   }
+  rpc MessageChannelCard (puppet.MessageChannelCardRequest) returns (puppet.MessageChannelCardResponse) {
+    option (google.api.http) = {
+      get: "/message/{id}/channel-card"
+    };
+  }
   rpc MessageCallRecord (puppet.MessageCallRecordRequest) returns (puppet.MessageCallRecordResponse) {
     option (google.api.http) = {
       get: "/message/{id}/call-record"
@@ -438,6 +443,12 @@ service Puppet {
   rpc MessageSendChannel (puppet.MessageSendChannelRequest) returns (puppet.MessageSendChannelResponse) {
     option (google.api.http) = {
       post: "/conversations/{conversation_id}/channel"
+      body: "*"
+    };
+  }
+  rpc MessageSendChannelCard (puppet.MessageSendChannelCardRequest) returns (puppet.MessageSendChannelCardResponse) {
+    option (google.api.http) = {
+      post: "/conversations/{conversation_id}/channel-card"
       body: "*"
     };
   }

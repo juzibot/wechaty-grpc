@@ -286,6 +286,12 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  messageSendChannelCard: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   messageSendPost: (call, callback) => {
     void call
     void callback
@@ -293,6 +299,12 @@ export const puppetServerImpl: IPuppetServer = {
   },
 
   messageChannel: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  messageChannelCard: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
