@@ -37,6 +37,7 @@ message RoomAddRequest {
   string contact_id  = 2; // 被邀请联系人id
   bool   invite_only = 3; // 不明确，目前没见到使用这个的地方
   repeated string quote_ids = 4; // 要附带的聊天消息 id 列表
+  repeated string contact_ids = 5; // 邀请的联系人id列表,优先用这个
 }
 message RoomAddResponse {}
 
