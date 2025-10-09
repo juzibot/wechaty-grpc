@@ -41,6 +41,28 @@ message RoomAddRequest {
 }
 message RoomAddResponse {}
 
+message RoomAddV2Request {
+  string id = 1;
+  repeated string contact_ids = 2;
+  bool invite_only = 3;
+  repeated string quote_ids = 4;
+}
+message RoomAddV2Response {
+  repeated string success_ids = 1;
+  repeated string failed_ids = 2;
+  repeated string failed_reasons = 3;
+}
+
+message RoomDelV2Request {
+  string id = 1;
+  repeated string contact_ids = 2;
+}
+message RoomDelV2Response {
+  repeated string success_ids = 1;
+  repeated string failed_ids = 2;
+  repeated string failed_reasons = 3;
+}
+
 message RoomAvatarRequest {
   string id = 1;
 }
