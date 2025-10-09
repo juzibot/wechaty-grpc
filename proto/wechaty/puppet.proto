@@ -593,13 +593,13 @@ service Puppet {
 
   rpc RoomAddV2 (puppet.RoomAddV2Request) returns (puppet.RoomAddV2Response) {
     option (google.api.http) = {
-      put: "/rooms/{id}/addV2/{contact_id}"
+      put: "/rooms/{id}/addV2"
     };
   }
 
   rpc RoomDelV2 (puppet.RoomDelV2Request) returns (puppet.RoomDelV2Response) {
     option (google.api.http) = {
-      delete: "/rooms/{id}/delV2/{contact_id}"
+      delete: "/rooms/{id}/delV2"
     };
   }
 
