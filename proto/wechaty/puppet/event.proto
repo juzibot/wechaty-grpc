@@ -33,6 +33,7 @@ enum EventType {
   EVENT_TYPE_POST_TAP      = 31;
   EVENT_TYPE_ROOM_ANNOUNCE = 32;
   EVENT_TYPE_VERIFY_CODE   = 33;
+  EVENT_TYPE_SLIDE_VERIFY  = 34;
 }
 
 message EventRequest {
