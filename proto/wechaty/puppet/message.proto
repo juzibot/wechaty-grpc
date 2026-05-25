@@ -339,16 +339,6 @@ message CreateMessageBroadcastResponse {
   string id = 1;
 }
 
-message CreateMessageBroadcastWithBatchRequest {
-  repeated string target_ids = 1;
-  PostPayloadClient content = 2;
-  string send_batch_id = 3;
-}
-
-message CreateMessageBroadcastWithBatchResponse {
-  string id = 1;
-}
-
 enum BroadcastStatus {
   BROADCAST_STATUS_UNKNOWN = 0;
   BROADCAST_STATUS_SENDING = 1;
