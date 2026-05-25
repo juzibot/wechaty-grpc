@@ -15,7 +15,7 @@ npm init -y
 npm install --production ./*-*.*.*.tgz \
   @types/node \
   pkg-jq \
-  typescript \
+  typescript@4.7.4 \
 
 #
 # CommonJS
