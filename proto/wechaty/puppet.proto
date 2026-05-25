@@ -422,6 +422,60 @@ service Puppet {
       body: "*"
     };
   }
+  rpc MessageBatchSendText (puppet.MessageBatchSendTextRequest) returns (puppet.MessageBatchSendTextResponse) {
+    option (google.api.http) = {
+      post: "/conversations:batchSendText"
+      body: "*"
+    };
+  }
+  rpc MessageBatchSendFile (puppet.MessageBatchSendFileRequest) returns (puppet.MessageBatchSendFileResponse) {
+    option (google.api.http) = {
+      post: "/conversations:batchSendFile"
+      body: "*"
+    };
+  }
+  rpc MessageBatchForward (puppet.MessageBatchForwardRequest) returns (puppet.MessageBatchForwardResponse) {
+    option (google.api.http) = {
+      post: "/conversations:batchForward"
+      body: "*"
+    };
+  }
+  rpc MessageBatchSendContact (puppet.MessageBatchSendContactRequest) returns (puppet.MessageBatchSendContactResponse) {
+    option (google.api.http) = {
+      post: "/conversations:batchSendContact"
+      body: "*"
+    };
+  }
+  rpc MessageBatchSendUrl (puppet.MessageBatchSendUrlRequest) returns (puppet.MessageBatchSendUrlResponse) {
+    option (google.api.http) = {
+      post: "/conversations:batchSendUrl"
+      body: "*"
+    };
+  }
+  rpc MessageBatchSendMiniProgram (puppet.MessageBatchSendMiniProgramRequest) returns (puppet.MessageBatchSendMiniProgramResponse) {
+    option (google.api.http) = {
+      post: "/conversations:batchSendMiniProgram"
+      body: "*"
+    };
+  }
+  rpc MessageBatchSendLocation (puppet.MessageBatchSendLocationRequest) returns (puppet.MessageBatchSendLocationResponse) {
+    option (google.api.http) = {
+      post: "/conversations:batchSendLocation"
+      body: "*"
+    };
+  }
+  rpc MessageBatchSendChannel (puppet.MessageBatchSendChannelRequest) returns (puppet.MessageBatchSendChannelResponse) {
+    option (google.api.http) = {
+      post: "/conversations:batchSendChannel"
+      body: "*"
+    };
+  }
+  rpc MessageBatchSendChannelCard (puppet.MessageBatchSendChannelCardRequest) returns (puppet.MessageBatchSendChannelCardResponse) {
+    option (google.api.http) = {
+      post: "/conversations:batchSendChannelCard"
+      body: "*"
+    };
+  }
   rpc MessageSendMiniProgram (puppet.MessageSendMiniProgramRequest) returns (puppet.MessageSendMiniProgramResponse) {
     option (google.api.http) = {
       post: "/conversations/{conversation_id}/mini-program"
