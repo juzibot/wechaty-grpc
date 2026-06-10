@@ -42,7 +42,7 @@ message CallControlRequest {
   string call_id    = 1; // 一通通话唯一 id：主叫生成 UUIDv4，全链路透传，禁止复用；控制面与媒体旁路以此关联
   CallSignal signal = 2;
   string peer_id    = 3; // 对端 contactId
-  CallType media    = 4; // signal=INVITE 时有效；复用既有 CallType（VOICE/VIDEO）
+  CallType media    = 4; // 必填：每个信令都须携带媒体类型（VOICE/VIDEO），复用既有 CallType；线上零值 CALL_TYPE_UNKNOWN 会被 server 拒绝
   string reason     = 5; // REJECT/HANGUP 可带；空串表示无
 }
 
