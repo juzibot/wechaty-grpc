@@ -27,3 +27,23 @@ message CallRecordPayload {
   CallType type = 4;
   CallStatus status = 5;
 }
+
+enum CallSignal { // 通话控制信令枚举
+  CALL_SIGNAL_UNSPECIFIED = 0; // 未指定
+  CALL_SIGNAL_INVITE      = 1; // 主叫发起
+  CALL_SIGNAL_RINGING     = 2; // 被叫已响铃（回执）
+  CALL_SIGNAL_ACCEPT      = 3; // 被叫接听
+  CALL_SIGNAL_REJECT      = 4; // 被叫拒接
+  CALL_SIGNAL_CANCEL      = 5; // 接通前主叫取消
+  CALL_SIGNAL_HANGUP      = 6; // 接通后任一方挂断
+}
+
+message CallControlRequest {
+  string call_id    = 1; // 一通通话唯一 id（主叫生成，全链路透传）
+  CallSignal signal = 2;
+  string peer_id    = 3; // 对端 contactId
+  CallType media    = 4; // signal=INVITE 时有效；复用既有 CallType（VOICE/VIDEO）
+  string reason     = 5; // REJECT/HANGUP 可带；空串表示无
+}
+
+message CallControlResponse {}

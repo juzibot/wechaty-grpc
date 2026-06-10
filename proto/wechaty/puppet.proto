@@ -17,6 +17,7 @@ import "google/api/annotations.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 import "wechaty/puppet/base.proto";
+import "wechaty/puppet/call.proto";
 import "wechaty/puppet/contact.proto";
 import "wechaty/puppet/download-upload.proto";
 import "wechaty/puppet/event.proto";
@@ -384,6 +385,12 @@ service Puppet {
   rpc MessageCallRecord (puppet.MessageCallRecordRequest) returns (puppet.MessageCallRecordResponse) {
     option (google.api.http) = {
       get: "/message/{id}/call-record"
+    };
+  }
+  rpc CallControl (puppet.CallControlRequest) returns (puppet.CallControlResponse) {
+    option (google.api.http) = {
+      post: "/call/control"
+      body: "*"
     };
   }
   rpc MessageChatHistory (puppet.MessageChatHistoryRequest) returns (puppet.MessageChatHistoryResponse) {

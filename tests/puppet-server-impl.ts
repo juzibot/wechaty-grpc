@@ -196,6 +196,12 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  callControl: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   messageChatHistory: (call, callback) => {
     void call
     void callback
