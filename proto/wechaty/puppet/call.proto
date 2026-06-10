@@ -39,11 +39,13 @@ enum CallSignal { // 通话控制信令枚举
 }
 
 message CallControlRequest {
-  string call_id    = 1; // 一通通话唯一 id（主叫生成，全链路透传）
+  string call_id    = 1; // 一通通话唯一 id：主叫生成 UUIDv4，全链路透传，禁止复用；控制面与媒体旁路以此关联
   CallSignal signal = 2;
   string peer_id    = 3; // 对端 contactId
   CallType media    = 4; // signal=INVITE 时有效；复用既有 CallType（VOICE/VIDEO）
   string reason     = 5; // REJECT/HANGUP 可带；空串表示无
 }
 
+// 信令投递为 errors-only 契约：gRPC status error 仅表示传输失败或 puppet 不支持；
+// 对端的业务响应（响铃/接听/拒接/挂断）一律经 EVENT_TYPE_CALL 事件上行，本响应恒为空。
 message CallControlResponse {}
