@@ -5,6 +5,8 @@ option go_package       = "github.com/wechaty/go-grpc/wechaty/puppet";
 option java_package     = "io.github.wechaty.grpc.puppet";
 option csharp_namespace = "github.wechaty.grpc.puppet";
 
+import "google/protobuf/timestamp.proto";
+
 enum CallType {
   CALL_TYPE_UNKNOWN = 0; // 不明确
   CALL_TYPE_VOICE = 1; // 语音
@@ -15,7 +17,7 @@ enum CallStatus { // 类型枚举
   CALL_STATUS_UNKNOWN = 0; // 不明确
   CALL_STATUS_CANCELED = 1; // 自己取消
   CALL_STATUS_REJECTED = 2; // 对方拒接
-  CALL_STATUS_MISSED = 3; // 正在通话
+  CALL_STATUS_MISSED = 3; // 未接
   CALL_STATUS_ONGOING = 4; // 正在通话
   CALL_STATUS_ENDED = 5; // 已结束
 }
@@ -28,24 +30,100 @@ message CallRecordPayload {
   CallStatus status = 5;
 }
 
-enum CallSignal { // 通话控制信令枚举
-  CALL_SIGNAL_UNSPECIFIED = 0; // 未指定
-  CALL_SIGNAL_INVITE      = 1; // 主叫发起
-  CALL_SIGNAL_RINGING     = 2; // 被叫已响铃（回执）
-  CALL_SIGNAL_ACCEPT      = 3; // 被叫接听
-  CALL_SIGNAL_REJECT      = 4; // 被叫拒接
-  CALL_SIGNAL_CANCEL      = 5; // 接通前主叫取消
-  CALL_SIGNAL_HANGUP      = 6; // 接通后任一方挂断
+// 通话信令域全貌：
+// - 下行动作（业务侧 → 协议端）= CallInvite / CallAdd / CallAccept / CallReject / CallCancel / CallHangup
+//   六个独立 RPC（对齐 MessageSendText / MessageRecall / FriendshipAccept 的「一动作一 RPC」惯例）；
+// - CallMediaEndpoint 为媒体入场券：按需向协议端换取媒体网关协商入口（url/token），刻意不缓存；
+// - 状态面 = CallPayload 查询 + dirty(PAYLOAD_TYPE_CALL, id) 失效通知：协议端在任何通话状态变化时
+//   发 dirty，业务侧再经 CallPayload 拉取最新快照；
+// - 上行回执（ringing/accept/reject/cancel/hangup 及来电 invite）一律经 EVENT_TYPE_CALL 事件上行，
+//   payload 为 JSON 序列化的字符串（含 callId/signal/contactId/reason?/timestamp）；
+// - Ringing 没有下行 RPC：响铃回执是被叫协议端的自动行为，不是业务动作。
+
+// 发起呼叫请求：callId 不由主叫携带，而是由 puppet 实现侧生成并经 CallInviteResponse 返回。
+message CallInviteRequest {
+  // 受邀方 contactId 列表（不含发起方）：单元素 = 1v1 通话，多元素 = 群通话；
+  // 无论几人，一通通话只铸造一个 call_id。
+  repeated string contact_ids = 1;
+  CallType media = 2; // 必填：媒体类型（VOICE/VIDEO），复用既有 CallType；零值 CALL_TYPE_UNKNOWN 会被 server 拒绝
 }
 
-message CallControlRequest {
-  string call_id    = 1; // 一通通话唯一 id：主叫生成 UUIDv4，全链路透传，禁止复用；控制面与媒体旁路以此关联
-  CallSignal signal = 2;
-  string peer_id    = 3; // 对端 contactId
-  CallType media    = 4; // 必填：每个信令都须携带媒体类型（VOICE/VIDEO），复用既有 CallType；线上零值 CALL_TYPE_UNKNOWN 会被 server 拒绝
-  string reason     = 5; // REJECT/HANGUP 可带；空串表示无
+// CallInvite 响应：
+// - call_id 由 puppet 实现侧（协议端）生成并经本响应返回，全链路以此关联控制面与媒体旁路；
+// - 上行 EVENT_TYPE_CALL 事件可能先于本响应到达，客户端须容忍乱序；
+// - 后续控制 RPC（CallAccept/CallReject/CallCancel/CallHangup）凭此 call_id 引用本通通话。
+message CallInviteResponse {
+  string call_id = 1;
 }
 
-// 信令投递为 errors-only 契约：gRPC status error 仅表示传输失败或 puppet 不支持；
-// 对端的业务响应（响铃/接听/拒接/挂断）一律经 EVENT_TYPE_CALL 事件上行，本响应恒为空。
-message CallControlResponse {}
+// 通话中途拉人（errors-only 契约）：
+// - 新参与者的应答回执（响铃/接听/拒接）一律经 EVENT_TYPE_CALL 事件上行，本响应恒为空；
+// - 拉人特有的失败（通话不存在/已结束、人数上限等）经 gRPC status error 返回。
+message CallAddRequest {
+  string call_id = 1; // 由 CallInvite 响应获得
+  repeated string contact_ids = 2; // 新增受邀方 contactId 列表（不含已在通话中的参与者）
+}
+
+message CallAddResponse {}
+
+// 以下四个控制 RPC（CallAccept/CallReject/CallCancel/CallHangup）的信令投递为 errors-only 契约：
+// gRPC status error 仅表示传输失败或 puppet 不支持；对端的业务响应（响铃/接听/拒接/挂断）
+// 一律经 EVENT_TYPE_CALL 事件上行，故四个响应消息恒为空。
+
+// 被叫接听来电。
+message CallAcceptRequest {
+  string call_id = 1; // 由 CallInvite 响应获得；协议端持有会话状态，凭此即可定位会话（无需 peer/media）
+}
+
+message CallAcceptResponse {}
+
+// 被叫拒接来电。
+message CallRejectRequest {
+  string call_id = 1; // 由 CallInvite 响应获得；协议端持有会话状态，凭此即可定位会话（无需 peer/media）
+  string reason  = 2; // 可空，空串表示无
+}
+
+message CallRejectResponse {}
+
+// 接通前主叫取消呼叫。
+message CallCancelRequest {
+  string call_id = 1; // 由 CallInvite 响应获得；协议端持有会话状态，凭此即可定位会话（无需 peer/media）
+}
+
+message CallCancelResponse {}
+
+// 接通后任一方挂断。
+message CallHangupRequest {
+  string call_id = 1; // 由 CallInvite 响应获得；协议端持有会话状态，凭此即可定位会话（无需 peer/media）
+  string reason  = 2; // 可空，空串表示无
+}
+
+message CallHangupResponse {}
+
+// 媒体入场券：按 call_id 向协议端换取媒体网关协商入口。
+// 签发可能在网关侧预分配媒体会话（有副作用），故服务端不得缓存响应、客户端按需拉取。
+message CallMediaEndpointRequest {
+  string call_id = 1; // 由 CallInvite 响应获得
+}
+
+message CallMediaEndpointResponse {
+  string url      = 1; // 媒体网关协商入口（非媒体流地址本身）
+  string token    = 2; // 短时效凭证，绑定 call_id + 本端身份
+  google.protobuf.Timestamp expires_at = 3; // 凭证过期时刻；不设置 = 不过期；过期后重新拉取本 RPC
+  string protocol = 4; // 入口方言（如 whip / livekit / 自定义），由媒体 SDK 消费
+}
+
+// 通话状态快照查询（对齐 ContactPayload 的实体查询模式）：
+// 协议端在任何通话状态变化时须发 dirty(PAYLOAD_TYPE_CALL, id)，业务侧凭此失效缓存后重新拉取。
+message CallPayloadRequest {
+  string id = 1; // call_id
+}
+
+message CallPayloadResponse {
+  string id      = 1;
+  string starter = 2; // 发起方 contactId；空串 = 协议端不可知（如中途被拉入者视角）
+  repeated string participants = 3; // 当前全量参与者名册
+  CallType media = 4; // 当前媒体类型（语音↔视频切换经 dirty 反映）
+  google.protobuf.Timestamp start_time = 5; // 通话发起时刻；接通时刻不在此（等于上行 Accept 事件的 timestamp）
+  google.protobuf.Timestamp end_time   = 6; // 通话结束时刻；未设置 = 通话进行中
+}

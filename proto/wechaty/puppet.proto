@@ -387,10 +387,52 @@ service Puppet {
       get: "/message/{id}/call-record"
     };
   }
-  rpc CallControl (puppet.CallControlRequest) returns (puppet.CallControlResponse) {
+  rpc CallInvite (puppet.CallInviteRequest) returns (puppet.CallInviteResponse) {
     option (google.api.http) = {
-      post: "/call/control"
+      post: "/call/invite"
       body: "*"
+    };
+  }
+  rpc CallAdd (puppet.CallAddRequest) returns (puppet.CallAddResponse) {
+    option (google.api.http) = {
+      post: "/call/{call_id}/add"
+      body: "*"
+    };
+  }
+  rpc CallAccept (puppet.CallAcceptRequest) returns (puppet.CallAcceptResponse) {
+    option (google.api.http) = {
+      post: "/call/{call_id}/accept"
+      body: "*"
+    };
+  }
+  rpc CallReject (puppet.CallRejectRequest) returns (puppet.CallRejectResponse) {
+    option (google.api.http) = {
+      post: "/call/{call_id}/reject"
+      body: "*"
+    };
+  }
+  rpc CallCancel (puppet.CallCancelRequest) returns (puppet.CallCancelResponse) {
+    option (google.api.http) = {
+      post: "/call/{call_id}/cancel"
+      body: "*"
+    };
+  }
+  rpc CallHangup (puppet.CallHangupRequest) returns (puppet.CallHangupResponse) {
+    option (google.api.http) = {
+      post: "/call/{call_id}/hangup"
+      body: "*"
+    };
+  }
+  // POST：签发可能在网关侧预分配媒体会话（有副作用），非幂等读取。
+  rpc CallMediaEndpoint (puppet.CallMediaEndpointRequest) returns (puppet.CallMediaEndpointResponse) {
+    option (google.api.http) = {
+      post: "/call/{call_id}/media-endpoint"
+      body: "*"
+    };
+  }
+  rpc CallPayload (puppet.CallPayloadRequest) returns (puppet.CallPayloadResponse) {
+    option (google.api.http) = {
+      get: "/call/{id}"
     };
   }
   rpc MessageChatHistory (puppet.MessageChatHistoryRequest) returns (puppet.MessageChatHistoryResponse) {

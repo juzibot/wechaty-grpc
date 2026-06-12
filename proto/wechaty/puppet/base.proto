@@ -5,6 +5,7 @@ option go_package       = "github.com/wechaty/go-grpc/wechaty/puppet";
 option java_package     = "io.github.wechaty.grpc.puppet";
 option csharp_namespace = "github.wechaty.grpc.puppet";
 
+// 数值必须与 @juzi/wechaty-puppet 的 DirtyType 严格一致。
 enum PayloadType {
   PAYLOAD_TYPE_UNSPECIFIED = 0;
   PAYLOAD_TYPE_MESSAGE     = 1;
@@ -15,6 +16,9 @@ enum PayloadType {
   PAYLOAD_TYPE_POST        = 6;
   PAYLOAD_TYPE_TAG         = 7;
   PAYLOAD_TYPE_TAG_GROUP   = 8;
+  PAYLOAD_TYPE_WXXD_PRODUCT = 9;
+  PAYLOAD_TYPE_WXXD_ORDER   = 10;
+  PAYLOAD_TYPE_CALL         = 11;
 }
 
 message StartRequest {}

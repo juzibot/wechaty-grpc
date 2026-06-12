@@ -196,7 +196,49 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
-  callControl: (call, callback) => {
+  callInvite: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  callAdd: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  callAccept: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  callReject: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  callCancel: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  callHangup: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  callMediaEndpoint: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  callPayload: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
