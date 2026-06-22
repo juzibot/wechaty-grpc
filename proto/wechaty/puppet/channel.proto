@@ -18,6 +18,25 @@ message ChannelPayload {
   // 视频号直播专属
   string object_id = 9;
   string object_nonce_id = 10;
+
+  // 个微（phoenix）转发视频号所需补充字段，来自接收视频号的 appmsg.finderFeed
+  string username = 11;                  // 视频号 finder userName
+  int32  auth_icon_type = 12;            // 认证类型
+  string auth_icon_url = 13;             // 授权图标地址
+  string from_user_name = 14;            // 视频号转发自好友 userName
+  repeated ChannelMedia media_list = 15; // 媒体资源列表（图片类视频号可多条）
+}
+
+// 视频号媒体资源，对应接收视频号 finderFeed.mediaList.media
+message ChannelMedia {
+  int32  media_type = 1;          // 资源类型 2:图片 4:视频
+  string url = 2;                 // 原始媒体流地址
+  string thumb_url = 3;           // 视频第一帧缩略图地址
+  string full_cover_url = 4;      // 封面缩略图地址
+  string cover_url = 5;           // 封面地址
+  int32  width = 6;               // 缩略图宽度，默认 1080
+  int32  height = 7;              // 缩略图高度，默认 1920
+  int32  video_play_duration = 8; // 视频播放时长（秒）
 }
 
 enum ChannelFeedType {
