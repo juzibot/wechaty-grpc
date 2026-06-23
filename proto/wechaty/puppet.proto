@@ -348,6 +348,12 @@ service Puppet {
   rpc MessageImage (puppet.MessageImageRequest) returns (puppet.MessageImageResponse) {
   }
 
+  rpc MessageVoice (puppet.MessageVoiceRequest) returns (puppet.MessageVoiceResponse) {
+  }
+
+  rpc MessageVoiceText (puppet.MessageVoiceTextRequest) returns (puppet.MessageVoiceTextResponse) {
+  }
+
   rpc MessageSendFile (puppet.MessageSendFileRequest) returns (puppet.MessageSendFileResponse) {
   }
 
