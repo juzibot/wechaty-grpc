@@ -112,6 +112,21 @@ message MessageFileResponse {
    string file_box = 1;
 }
 
+message MessageVoiceRequest {
+  string id = 1;
+}
+message MessageVoiceResponse {
+   string file_box = 1;
+}
+
+message MessageVoiceTextRequest {
+  string id = 1;
+}
+message MessageVoiceTextResponse {
+   string text      = 1;
+   bool   no_speech = 2;
+}
+
 message MessageMiniProgramRequest {
   string id = 1;
 }
