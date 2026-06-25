@@ -262,6 +262,18 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  messageVoice: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  messageVoiceText: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   messageLocation: (call, callback) => {
     void call
     void callback
