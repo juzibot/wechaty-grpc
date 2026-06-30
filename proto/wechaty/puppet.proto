@@ -604,6 +604,13 @@ service Puppet {
     };
   }
 
+  rpc BatchRoomPayload (puppet.BatchRoomPayloadRequest) returns (puppet.BatchRoomPayloadResponse) {
+    option (google.api.http) = {
+      post: "/rooms/batch-payload"
+      body: "*"
+    };
+  }
+
   rpc RoomList (puppet.RoomListRequest) returns (puppet.RoomListResponse) {
     option (google.api.http) = {
       get: "/rooms"

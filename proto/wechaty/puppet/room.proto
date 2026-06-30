@@ -171,3 +171,11 @@ message RoomDismissRequest {
 }
 
 message RoomDismissResponse {}
+
+message BatchRoomPayloadRequest {
+  repeated string ids = 1;
+}
+
+message BatchRoomPayloadResponse {
+  repeated RoomPayloadResponse room_payloads = 1;
+}
