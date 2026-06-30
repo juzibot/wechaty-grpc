@@ -28,6 +28,7 @@ message CallRecordPayload {
   int32 length = 3;
   CallType type = 4;
   CallStatus status = 5;
+  string call_id = 6; // 关联控制面 call_id，可空字符串表示历史/未知
 }
 
 // 通话信令域全貌：
