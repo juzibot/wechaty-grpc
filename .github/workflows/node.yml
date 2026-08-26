@@ -95,8 +95,8 @@ jobs:
           cache: npm
           cache-dependency-path: package.json
 
-      - name: Install latest npm
-        run: curl -qL https://www.npmjs.com/install.sh | sh
+      - name: Install npm 11
+        run: npm install -g npm@11
 
       - name: Set up TS
         run: npm install typescript@4.7.3
