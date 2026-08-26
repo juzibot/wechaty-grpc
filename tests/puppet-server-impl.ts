@@ -238,6 +238,12 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  callInviteWithMedia: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   callPayload: (call, callback) => {
     void call
     void callback

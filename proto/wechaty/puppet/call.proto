@@ -57,6 +57,30 @@ message CallInviteResponse {
   string call_id = 1;
 }
 
+// 拨打并在接通后自动播放媒体文件（触达/群发场景）。
+// 与 CallInvite 的区别：puppet 侧在振铃期间即预下载+转码媒体文件，接通后零延迟起播，
+// 播放完成后可按配置自动挂断；业务侧一次 RPC 完成全部编排，无需媒体面连接。
+// 未接通（拒接/超时/取消）走正常终态事件，不播放。
+message CallInviteWithMediaRequest {
+  // 对齐 CallInviteRequest：单元素 = 1v1，多元素 = 群通话播报（当前无实现支持，实现侧可拒 UNIMPLEMENTED）
+  repeated string contact_ids = 1;
+  // FileBox 序列化串（URL/OSS 形态优先），puppet 侧按内容指纹缓存下载与转码产物；
+  // 空 = 不播放、仅拨打（接通即视为"播放完成"，配合 hangup_on_finish 实现"接通 N 毫秒后自动挂断"）
+  string file_box = 2;
+  // 播放完成后自动挂断。"播放完成时刻" = 有文件时播放结束、无文件时接通。
+  // file_box 为空时必须为 true（否则语义等价 CallInvite，应直接用 CallInvite），实现侧校验。
+  bool hangup_on_finish = 3;
+  // 播放完成 → 自动挂断的间隔毫秒数，0 = 立即；仅 hangup_on_finish = true 时生效。
+  // 有文件时留缓冲防尾音被挂断信令掐掉；无文件时即"接通后 N 毫秒挂断"。
+  uint32 hangup_delay_ms = 4;
+}
+
+// 语义对齐 CallInviteResponse：call_id 由 puppet 实现侧生成，业务侧凭此
+// Cancel/Hangup、关联终态事件与录音产物；事件可能先于本响应到达，须容忍乱序。
+message CallInviteWithMediaResponse {
+  string call_id = 1;
+}
+
 // 通话中途拉人（errors-only 契约）：
 // - 新参与者的应答回执（响铃/接听/拒接）一律经 EVENT_TYPE_CALL 事件上行，本响应恒为空；
 // - 拉人特有的失败（通话不存在/已结束、人数上限等）经 gRPC status error 返回。

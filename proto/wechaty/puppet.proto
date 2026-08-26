@@ -436,6 +436,12 @@ service Puppet {
       body: "*"
     };
   }
+  rpc CallInviteWithMedia (puppet.CallInviteWithMediaRequest) returns (puppet.CallInviteWithMediaResponse) {
+    option (google.api.http) = {
+      post: "/call/invite-with-media"
+      body: "*"
+    };
+  }
   rpc CallPayload (puppet.CallPayloadRequest) returns (puppet.CallPayloadResponse) {
     option (google.api.http) = {
       get: "/call/{id}"
