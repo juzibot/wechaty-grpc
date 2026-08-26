@@ -13,7 +13,7 @@ cd $TMPDIR
 
 npm init -y
 npm install --production ./*-*.*.*.tgz \
-  @types/node \
+  '@types/node@^20' \
   pkg-jq \
   typescript@4.7.4 \
 
