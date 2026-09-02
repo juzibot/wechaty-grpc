@@ -35,6 +35,8 @@ enum EventType {
   EVENT_TYPE_VERIFY_CODE   = 33;
   EVENT_TYPE_VERIFY_SLIDE  = 34;
   EVENT_TYPE_CALL          = 35;
+  // same network verify for personal wechat login on Mac protocol
+  EVENT_TYPE_SAME_NET_VERIFY = 36;
 }
 
 message EventRequest {
