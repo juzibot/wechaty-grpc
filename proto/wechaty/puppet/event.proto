@@ -37,6 +37,10 @@ enum EventType {
   EVENT_TYPE_CALL          = 35;
   // same network verify for personal wechat login on Mac protocol
   EVENT_TYPE_SAME_NET_VERIFY = 36;
+  // wecom org (admin) broadcast plan arrived: member received the broadcast assistant card
+  EVENT_TYPE_ORG_BROADCAST_CREATED = 37;
+  // wecom org (admin) broadcast plan executed, from any client
+  EVENT_TYPE_ORG_BROADCAST_SENT    = 38;
 }
 
 message EventRequest {

@@ -973,6 +973,19 @@ service Puppet {
     };
   }
 
+  rpc OrgBroadcastPayload (puppet.OrgBroadcastPayloadRequest) returns (puppet.OrgBroadcastPayloadResponse) {
+    option (google.api.http) = {
+      get: "/wecom/orgBroadcast/{id}"
+    };
+  }
+
+  rpc OrgBroadcastExecute (puppet.OrgBroadcastExecuteRequest) returns (puppet.OrgBroadcastExecuteResponse) {
+    option (google.api.http) = {
+      post: "/wecom/orgBroadcast/{id}/execute",
+      body: "*"
+    };
+  }
+
   /**
    * File/Blob download & upload
    */
