@@ -90,11 +90,11 @@ message OrgBroadcastPayloadRequest {
 
 message OrgBroadcastPayloadResponse {
   string id = 1;
-  int32 send_type = 2;
+  int32 send_type = 2;          // 0: official (org admin), 1: personal, 2: special
   int32 conversation_type = 3;  // 0: person, 1: group
   string creator_id = 4;
-  int64 exec_time = 5;          // seconds, 0 means immediately
-  int32 status = 6;
+  int64 exec_time = 5;          // milliseconds timestamp of the scheduled sending, 0 means immediately
+  int32 status = 6;             // 0: checking, 1: check succeeded, 2: check failed, 3: delayed send succeeded, 4: delayed send canceled
   bool can_cancel = 7;
   bool allow_select = 8;        // members may adjust targets before sending
   bool sent = 9;
@@ -106,7 +106,8 @@ message OrgBroadcastPayloadResponse {
 
 message OrgBroadcastExecuteRequest {
   string id = 1;
-  // empty means all targets of the plan; otherwise a subset of the plan targets
+  // empty means all targets of the plan; otherwise a subset of the plan targets.
+  // clients must not send an explicit empty selection, it would be read as all targets
   repeated string target_ids = 2;
 }
 
