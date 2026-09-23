@@ -808,6 +808,18 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
+  orgBroadcastPayload: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
+  orgBroadcastExecute: (call, callback) => {
+    void call
+    void callback
+    throw new Error('not implemented.')
+  },
+
   download: (call) => {
     void call
     throw new Error('not implemented.')

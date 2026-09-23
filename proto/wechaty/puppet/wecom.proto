@@ -65,3 +65,50 @@ message GetCorpMessageInterceptionStrategiesRequest {}
 message GetCorpMessageInterceptionStrategiesResponse {
   repeated CorpMessageInterceptionStrategy strategies = 1;
 }
+
+enum OrgBroadcastTargetStatus {
+  ORG_BROADCAST_TARGET_STATUS_UNSENT      = 0;
+  ORG_BROADCAST_TARGET_STATUS_SENT        = 1;
+  ORG_BROADCAST_TARGET_STATUS_NOT_FRIEND  = 2;
+  ORG_BROADCAST_TARGET_STATUS_OCCUPIED    = 3;
+  ORG_BROADCAST_TARGET_STATUS_UNCONFIRMED = 4;
+  ORG_BROADCAST_TARGET_STATUS_CONFIRMED   = 5;
+  ORG_BROADCAST_TARGET_STATUS_EXPIRED     = 6;
+  ORG_BROADCAST_TARGET_STATUS_CANCELED    = 7;
+  ORG_BROADCAST_TARGET_STATUS_NEW_UNSENT  = 8;
+}
+
+message OrgBroadcastTarget {
+  string contact_id = 1;  // set when conversation_type is person
+  string room_id = 2;     // set when conversation_type is group
+  OrgBroadcastTargetStatus status = 3;
+}
+
+message OrgBroadcastPayloadRequest {
+  string id = 1;
+}
+
+message OrgBroadcastPayloadResponse {
+  string id = 1;
+  int32 send_type = 2;          // 0: official (org admin), 1: personal, 2: special
+  int32 conversation_type = 3;  // 0: person, 1: group
+  string creator_id = 4;
+  int64 exec_time = 5;          // milliseconds timestamp of the scheduled sending, 0 means immediately
+  int32 status = 6;             // 0: checking, 1: check succeeded, 2: check failed, 3: delayed send succeeded, 4: delayed send canceled
+  bool can_cancel = 7;
+  bool allow_select = 8;        // members may adjust targets before sending
+  bool sent = 9;
+  int32 total_count = 10;
+  int32 sent_count = 11;
+  string content_list_json = 12;
+  repeated OrgBroadcastTarget targets = 13;
+}
+
+message OrgBroadcastExecuteRequest {
+  string id = 1;
+  // empty means all targets of the plan; otherwise a subset of the plan targets.
+  // clients must not send an explicit empty selection, it would be read as all targets
+  repeated string target_ids = 2;
+}
+
+message OrgBroadcastExecuteResponse {}

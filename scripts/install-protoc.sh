@@ -69,7 +69,7 @@ function install_proto_health_check () {
   fi
 
   mkdir -p ${THIRD_PARTY_DIR}/google/api/health_check/v1/
-  curl https://raw.githubusercontent.com/grpc/grpc/master/src/proto/grpc/health/v1/health.proto > ${THIRD_PARTY_DIR}/google/api/health_check/v1/health_check.proto
+  curl -fsSL https://raw.githubusercontent.com/grpc/grpc/v1.66.0/src/proto/grpc/health/v1/health.proto > ${THIRD_PARTY_DIR}/google/api/health_check/v1/health_check.proto
 }
 
 function install_protoc_gen_openapiv2 () {
