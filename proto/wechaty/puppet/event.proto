@@ -41,6 +41,7 @@ enum EventType {
   EVENT_TYPE_ORG_BROADCAST_CREATED = 37;
   // wecom org (admin) broadcast plan executed, from any client
   EVENT_TYPE_ORG_BROADCAST_SENT    = 38;
+  EVENT_TYPE_ROOM_MEMBER_LOAD     = 39;
 }
 
 message EventRequest {

@@ -742,6 +742,11 @@ service Puppet {
     };
   }
 
+  rpc RoomMemberSync (puppet.RoomMemberSyncRequest) returns (puppet.RoomMemberLoadStateResponse) {}
+  rpc RoomMemberLoadState (puppet.RoomMemberLoadStateRequest) returns (puppet.RoomMemberLoadStateResponse) {}
+  // Reads an existing revision only; must not start member loading.
+  rpc RoomMemberSnapshot (puppet.RoomMemberSnapshotRequest) returns (puppet.RoomMemberSnapshotResponse) {}
+
   rpc BatchRoomMemberPayload (puppet.BatchRoomMemberPayloadRequest) returns (puppet.BatchRoomMemberPayloadResponse) {
     option (google.api.http) = {
       post: "/rooms/{id}/members/batch-payload"
