@@ -42,11 +42,14 @@ enum EventType {
   // wecom org (admin) broadcast plan executed, from any client
   EVENT_TYPE_ORG_BROADCAST_SENT    = 38;
   EVENT_TYPE_ROOM_MEMBER_LOAD     = 39;
+  // Opt-in stream barrier: payload {accountId, throughSeq}, envelope seq=0.
+  EVENT_TYPE_REPLAY_COMPLETE      = 40;
 }
 
 message EventRequest {
   int32 seq = 1; // the seq of the last event
   string account_id = 2;  // the accountId of the last event
+  bool replay_barrier = 3; // request a completion marker after ordered replay
 }
 
 message EventResponse {
