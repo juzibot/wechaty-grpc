@@ -514,19 +514,7 @@ export const puppetServerImpl: IPuppetServer = {
     throw new Error('not implemented.')
   },
 
-  roomMemberSync: (call, callback) => {
-    void call
-    void callback
-    throw new Error('not implemented.')
-  },
-
-  roomMemberLoadState: (call, callback) => {
-    void call
-    void callback
-    throw new Error('not implemented.')
-  },
-
-  roomMemberSnapshot: (call, callback) => {
+  roomMemberLazyLoadNow: (call, callback) => {
     void call
     void callback
     throw new Error('not implemented.')
