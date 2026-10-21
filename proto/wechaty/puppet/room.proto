@@ -9,21 +9,6 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
 import "wechaty/puppet/util.proto";
-import "wechaty/puppet/room-member.proto";
-
-enum RoomMemberLoadMode {
-  ROOM_MEMBER_LOAD_MODE_UNSPECIFIED = 0;
-  ROOM_MEMBER_LOAD_MODE_NORMAL = 1;
-  ROOM_MEMBER_LOAD_MODE_LAZY = 2;
-}
-
-enum RoomMemberLoadStatus {
-  ROOM_MEMBER_LOAD_STATUS_UNSPECIFIED = 0;
-  ROOM_MEMBER_LOAD_STATUS_PENDING = 1;
-  ROOM_MEMBER_LOAD_STATUS_LOADING = 2;
-  ROOM_MEMBER_LOAD_STATUS_LOADED = 3;
-  ROOM_MEMBER_LOAD_STATUS_FAILED = 4;
-}
 
 message RoomListRequest {}
 message RoomListResponse {
@@ -46,10 +31,9 @@ message RoomPayloadResponse {
   bool     external          = 10;
   google.protobuf.Timestamp create_time = 11;
   uint32 member_count = 12;
-  RoomMemberLoadMode member_load_mode = 13;
-  RoomMemberLoadStatus member_load_status = 14;
-  string member_load_revision = 15;
-  google.protobuf.Timestamp member_loaded_at = 16;
+  // 13-16 were the retired V1 room member loading fields; never reuse them.
+  reserved 13 to 16;
+  reserved "member_load_mode", "member_load_status", "member_load_revision", "member_loaded_at";
 }
 
 message RoomAddRequest {
@@ -200,37 +184,6 @@ message BatchRoomPayloadResponse {
   repeated RoomPayloadResponse room_payloads = 1;
 }
 
-message RoomMemberSyncRequest {
-  string id = 1;
-  bool force = 2;
-}
-
-message RoomMemberLoadStateRequest {
-  string id = 1;
-}
-
-message RoomMemberLoadStateResponse {
-  string id = 1;
-  string task_id = 2;
-  RoomMemberLoadStatus status = 3;
-  // Canonical non-negative decimal string; never convert to a JS number.
-  string revision = 4;
-  google.protobuf.Timestamp loaded_at = 5;
-  string error = 6;
-}
-
-message RoomMemberSnapshotRequest {
-  string id = 1;
-  string revision = 2;
-  string page_token = 3;
-  // Zero selects the adapter default (100); maximum 500.
-  uint32 page_size = 4;
-}
-
-message RoomMemberSnapshotResponse {
-  string id = 1;
-  string revision = 2;
-  google.protobuf.Timestamp loaded_at = 3;
-  repeated RoomMemberPayloadResponse members = 4;
-  string next_page_token = 5;
-}
+// Account-level: immediately load members of every room that is still pending lazy loading.
+message RoomMemberLazyLoadNowRequest {}
+message RoomMemberLazyLoadNowResponse {}
