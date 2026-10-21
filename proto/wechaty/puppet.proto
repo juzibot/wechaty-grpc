@@ -742,10 +742,8 @@ service Puppet {
     };
   }
 
-  rpc RoomMemberSync (puppet.RoomMemberSyncRequest) returns (puppet.RoomMemberLoadStateResponse) {}
-  rpc RoomMemberLoadState (puppet.RoomMemberLoadStateRequest) returns (puppet.RoomMemberLoadStateResponse) {}
-  // Reads an existing revision only; must not start member loading.
-  rpc RoomMemberSnapshot (puppet.RoomMemberSnapshotRequest) returns (puppet.RoomMemberSnapshotResponse) {}
+  // Account-level: stop pacing and load all remaining lazily loaded rooms now.
+  rpc RoomMemberLazyLoadNow (puppet.RoomMemberLazyLoadNowRequest) returns (puppet.RoomMemberLazyLoadNowResponse) {}
 
   rpc BatchRoomMemberPayload (puppet.BatchRoomMemberPayloadRequest) returns (puppet.BatchRoomMemberPayloadResponse) {
     option (google.api.http) = {

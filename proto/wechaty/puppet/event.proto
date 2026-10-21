@@ -41,9 +41,12 @@ enum EventType {
   EVENT_TYPE_ORG_BROADCAST_CREATED = 37;
   // wecom org (admin) broadcast plan executed, from any client
   EVENT_TYPE_ORG_BROADCAST_SENT    = 38;
+  // Members of one lazily loaded room are ready: payload {roomId}.
   EVENT_TYPE_ROOM_MEMBER_LOAD     = 39;
   // Opt-in stream barrier: payload {accountId, throughSeq}, envelope seq=0.
   EVENT_TYPE_REPLAY_COMPLETE      = 40;
+  // Every lazily loaded room of the account has its members ready: payload {}.
+  EVENT_TYPE_ROOM_MEMBER_LAZY_LOAD_FINISHED = 41;
 }
 
 message EventRequest {
